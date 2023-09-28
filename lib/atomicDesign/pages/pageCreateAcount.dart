@@ -13,13 +13,15 @@ class _pageCreateAcountState extends State<pageCreateAcount> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
-        child: Container(
-          color: Color(0xffffffff),
-          child: Column(
-            children: [
-              organismsCreateAcount(),
-            ],
+      body: SafeArea(
+        child: SingleChildScrollView(
+          child: Container(
+            color: Color(0xffffffff),
+            child: Column(
+              children: [
+                organismsCreateAcount(),
+              ],
+            ),
           ),
         ),
       ),

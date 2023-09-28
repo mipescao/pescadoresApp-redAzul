@@ -26,7 +26,6 @@ class _organismscodeVerificationState extends State<organismscodeVerification> {
     return Container(
       child: Column(
         children: [
-          SizedBox(height: 30.0),
           atomLogoRedAzul(heightImg: MediaQuery.of(context).size.height * 0.2),
           atomTitle(
               title:

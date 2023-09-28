@@ -13,11 +13,13 @@ class _pageCodeVerificationState extends State<pageCodeVerification> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
-        child: Container(
-          child: Center(
-            child: Column(
-              children: [organismscodeVerification()],
+      body: SafeArea(
+        child: SingleChildScrollView(
+          child: Container(
+            child: Center(
+              child: Column(
+                children: [organismscodeVerification()],
+              ),
             ),
           ),
         ),

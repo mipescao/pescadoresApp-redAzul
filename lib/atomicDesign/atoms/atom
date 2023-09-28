@@ -1,0 +1,208 @@
+ClipRRect(
+            borderRadius: BorderRadius.circular(14.0),
+            child: Container(
+              width: 400.0,
+              constraints: BoxConstraints(
+                  maxWidth: MediaQuery.of(context).size.width * 0.95),
+              child: Column(
+                children: [
+                  GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        headOfTheFamily = !headOfTheFamily;
+                      });
+                    },
+                    child: Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.only(
+                              // topLeft: 14,
+                              // topRight: 14,
+                              ),
+                          color: Color(0xff29abe2),
+                        ),
+                        child: Row(
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.only(left: 20.0),
+                              child: Checkbox(
+                                  value: headOfTheFamily,
+                                  onChanged: (bool? value) {
+                                    setState(() {
+                                      headOfTheFamily =
+                                          headOfTheFamily ?? false;
+                                    });
+                                  }),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(left: 20.0),
+                              child: Text(
+                                "Soy cabeza de familia",
+                                style: TextStyle(
+                                    color: Color(0xffffffff),
+                                    fontSize: 22.0,
+                                    fontWeight: FontWeight.normal),
+                              ),
+                            )
+                          ],
+                        )),
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        headOfTheFamily = !headOfTheFamily;
+                      });
+                    },
+                    child: Container(
+                        color: Color(0xff0071bc),
+                        child: Row(
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.only(left: 20.0),
+                              child: Checkbox(
+                                  value: headOfTheFamily,
+                                  onChanged: (bool? value) {
+                                    setState(() {
+                                      headOfTheFamily =
+                                          headOfTheFamily ?? false;
+                                    });
+                                  }),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(left: 20.0),
+                              child: Container(
+                                width: 300.0,
+                                child: Text(
+                                  "Soy una persona en condiciónde discapacidad",
+                                  style: TextStyle(
+                                    color: Color(0xffffffff),
+                                    fontSize: 22.0,
+                                    fontWeight: FontWeight.normal,
+                                    overflow: TextOverflow.clip,
+                                  ),
+                                ),
+                              ),
+                            )
+                          ],
+                        )),
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        headOfTheFamily = !headOfTheFamily;
+                      });
+                    },
+                    child: Container(
+                        color: Color(0xff29abe2),
+                        child: Row(
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.only(left: 20.0),
+                              child: Checkbox(
+                                  value: headOfTheFamily,
+                                  onChanged: (bool? value) {
+                                    setState(() {
+                                      headOfTheFamily =
+                                          headOfTheFamily ?? false;
+                                    });
+                                  }),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(left: 20.0),
+                              child: Container(
+                                width: 300.0,
+                                child: Text(
+                                  "Soy desplazado/a",
+                                  style: TextStyle(
+                                    color: Color(0xffffffff),
+                                    fontSize: 22.0,
+                                    fontWeight: FontWeight.normal,
+                                    overflow: TextOverflow.clip,
+                                  ),
+                                ),
+                              ),
+                            )
+                          ],
+                        )),
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        headOfTheFamily = !headOfTheFamily;
+                      });
+                    },
+                    child: Container(
+                        color: Color(0xff0071bc),
+                        child: Row(
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.only(left: 20.0),
+                              child: Checkbox(
+                                  value: headOfTheFamily,
+                                  onChanged: (bool? value) {
+                                    setState(() {
+                                      headOfTheFamily =
+                                          headOfTheFamily ?? false;
+                                    });
+                                  }),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(left: 20.0),
+                              child: Container(
+                                width: 300.0,
+                                child: Text(
+                                  "Soy victima del conflicto armado",
+                                  style: TextStyle(
+                                    color: Color(0xffffffff),
+                                    fontSize: 22.0,
+                                    fontWeight: FontWeight.normal,
+                                    overflow: TextOverflow.clip,
+                                  ),
+                                ),
+                              ),
+                            )
+                          ],
+                        )),
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        headOfTheFamily = !headOfTheFamily;
+                      });
+                    },
+                    child: Container(
+                        color: Color(0xff29abe2),
+                        child: Row(
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.only(left: 20.0),
+                              child: Checkbox(
+                                  value: headOfTheFamily,
+                                  onChanged: (bool? value) {
+                                    setState(() {
+                                      headOfTheFamily =
+                                          headOfTheFamily ?? false;
+                                    });
+                                  }),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(left: 20.0),
+                              child: Container(
+                                width: 300.0,
+                                child: Text(
+                                  "Pertenezco a la comunidad LGTBIQ+",
+                                  style: TextStyle(
+                                    color: Color(0xffffffff),
+                                    fontSize: 22.0,
+                                    fontWeight: FontWeight.normal,
+                                    overflow: TextOverflow.clip,
+                                  ),
+                                ),
+                              ),
+                            )
+                          ],
+                        )),
+                  ),
+                ],
+              ),
+            ),
+          )

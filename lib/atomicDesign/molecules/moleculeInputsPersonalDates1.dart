@@ -27,7 +27,6 @@ class moleculeInputsPersonalDates1 extends StatefulWidget {
 
 class _moleculeInputsPersonalDates1State
     extends State<moleculeInputsPersonalDates1> {
-
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -47,9 +46,9 @@ class _moleculeInputsPersonalDates1State
               icon: Icon(Icons.password, color: Colors.transparent)),
           SizedBox(height: 30.0),
           atomInputForm(
-            controllerInput: myControllerNickName,
-            textInput: 'Sobrenombre',
-            icon: Icon(Icons.password, color: Colors.transparent)),
+              controllerInput: myControllerNickName,
+              textInput: 'Sobrenombre',
+              icon: Icon(Icons.password, color: Colors.transparent)),
           SizedBox(height: 30.0),
           atomSelectsDocument(),
           SizedBox(height: 30.0),
@@ -67,38 +66,84 @@ class _moleculeInputsPersonalDates1State
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Row(
-                  children: [
-                    Text('Si', style: TextStyle(color: Color(0xff0095CD), fontSize: 26.0, fontFamily: "nunitoRegular"),),
-                    Checkbox(value: isCheckedSi, onChanged: (bool? value){
-                      setState(() {
-                        if(isCheckedSi == true){
-                          isCheckedNo = true; 
-                          isCheckedSi = false;
-                        }else if(isCheckedSi == false){
-                          isCheckedNo = false;
-                          isCheckedSi = true;
-                        }
-                      });
-                    },
-                    visualDensity: VisualDensity(vertical: 4.0, horizontal: 4.0), // Ajusta los valores según tus neces
-                    )
-                  ],
+                GestureDetector(
+                  onTap: () {
+                    setState(() {
+                      if (isCheckedSi == true) {
+                        isCheckedNo = true;
+                        isCheckedSi = false;
+                      } else if (isCheckedSi == false) {
+                        isCheckedNo = false;
+                        isCheckedSi = true;
+                      }
+                      ; // Cambiar el estado del Checkbox al hacer clic en el Container.
+                    });
+                  },
+                  child: Row(
+                    children: [
+                      Text(
+                        'Si',
+                        style: TextStyle(
+                            color: Color(0xff0095CD),
+                            fontSize: 26.0,
+                            fontFamily: "nunitoRegular"),
+                      ),
+                      Checkbox(
+                        value: isCheckedSi,
+                        onChanged: (bool? value) {
+                          setState(() {
+                            if (isCheckedSi == true) {
+                              isCheckedNo = true;
+                              isCheckedSi = false;
+                            } else if (isCheckedSi == false) {
+                              isCheckedNo = false;
+                              isCheckedSi = true;
+                            }
+                          });
+                        },
+                        visualDensity: VisualDensity(
+                            vertical: 4.0,
+                            horizontal:
+                                4.0), // Ajusta los valores según tus neces
+                      )
+                    ],
+                  ),
                 ),
-                Row(
-                  children: [
-                  Text('No',  style: TextStyle(color: Color(0xff0095CD), fontSize: 26.0, fontFamily: "nunitoRegular") ),
-                  Checkbox(value: isCheckedNo, onChanged: (bool? value){
-                      setState(() {
-                        if(isCheckedNo == true){
-                          isCheckedSi = true;
-                          isCheckedNo = false;
-                        }else if(isCheckedNo == false){
-                          isCheckedNo = true;
-                          isCheckedSi = false;
-                        }
-                      });
-                    })],
+                GestureDetector(
+                  onTap: () {
+                    setState(() {
+                      if (isCheckedSi == true) {
+                        isCheckedNo = true;
+                        isCheckedSi = false;
+                      } else if (isCheckedSi == false) {
+                        isCheckedNo = false;
+                        isCheckedSi = true;
+                      }
+                      ; // Cambiar el estado del Checkbox al hacer clic en el Container.
+                    });
+                  },
+                  child: Row(
+                    children: [
+                      Text('No',
+                          style: TextStyle(
+                              color: Color(0xff0095CD),
+                              fontSize: 26.0,
+                              fontFamily: "nunitoRegular")),
+                      Checkbox(
+                          value: isCheckedNo,
+                          onChanged: (bool? value) {
+                            setState(() {
+                              if (isCheckedNo == true) {
+                                isCheckedSi = true;
+                                isCheckedNo = false;
+                              } else if (isCheckedNo == false) {
+                                isCheckedNo = true;
+                                isCheckedSi = false;
+                              }
+                            });
+                          })
+                    ],
+                  ),
                 )
               ],
             ),
@@ -107,7 +152,10 @@ class _moleculeInputsPersonalDates1State
             visible: isCheckedSi,
             child: Column(
               children: [
-                atomInputForm(controllerInput: myControllerCarnetAunap, textInput: 'Número de carnet AUNAP', icon: Icon(Icons.password, color: Colors.transparent)),
+                atomInputForm(
+                    controllerInput: myControllerCarnetAunap,
+                    textInput: 'Número de carnet AUNAP',
+                    icon: Icon(Icons.password, color: Colors.transparent)),
                 SizedBox(height: 30.0),
                 atomInputImage(),
               ],
@@ -122,12 +170,9 @@ class _moleculeInputsPersonalDates1State
   }
 }
 
-
-savePersonalDates(context){
-  print("hola mundo");
+savePersonalDates(context) {
   return Navigator.push(
     context,
-    MaterialPageRoute(
-        builder: (context) => pageInfoContact()),
+    MaterialPageRoute(builder: (context) => pageInfoContact()),
   );
 }

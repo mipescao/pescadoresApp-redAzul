@@ -16,7 +16,6 @@ class _organismsRegisterUser1State extends State<organismsRegisterUser1> {
     return Container(
         child: Column(
       children: [
-        SizedBox(height: 20.0),
         atomLogoRedAzul(
           heightImg: MediaQuery.of(context).size.height * 0.2,
         ),

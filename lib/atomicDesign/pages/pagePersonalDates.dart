@@ -12,10 +12,12 @@ class _pagePersonalDatesState extends State<pagePersonalDates> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
-        child: Container(
-          child: Column(
-            children: [organismsRegisterUser1()],
+      body: SafeArea(
+        child: SingleChildScrollView(
+          child: Container(
+            child: Column(
+              children: [organismsRegisterUser1()],
+            ),
           ),
         ),
       ),

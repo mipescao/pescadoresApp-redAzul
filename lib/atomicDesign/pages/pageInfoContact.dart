@@ -12,11 +12,15 @@ class _pageInfoContactState extends State<pageInfoContact> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        child: Column(
-          children: [
-            organismsInfoContact(),
-          ],
+      body: SafeArea(
+        child: SingleChildScrollView(
+          child: Container(
+            child: Column(
+              children: [
+                organismsInfoContact(),
+              ],
+            ),
+          ),
         ),
       ),
     );

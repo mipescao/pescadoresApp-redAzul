@@ -13,12 +13,22 @@ class organismsInfoContact extends StatefulWidget {
 class _organismsInfoContactState extends State<organismsInfoContact> {
   @override
   Widget build(BuildContext context) {
+    void updateValue(String variableName, String newValue) {
+      setState(() {
+        if (variableName == 'departamentSelected') {
+          departamentSelected = newValue;
+        } else if (variableName == 'municipalitySelected') {
+          municipalitySelected = newValue;
+        }
+      });
+    }
+
     return Center(
       child: Container(
         child: Column(
           children: [
-            SizedBox(height: 30.0),
-            atomLogoRedAzul(heightImg: MediaQuery.of(context).size.height * 0.2),
+            atomLogoRedAzul(
+                heightImg: MediaQuery.of(context).size.height * 0.2),
             atomTitle(title: 'Danos tu información de contacto:'),
             SizedBox(height: 30.0),
             moleculeInputsInfoContact()

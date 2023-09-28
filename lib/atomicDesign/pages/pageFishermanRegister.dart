@@ -13,15 +13,17 @@ class _pageFishermanRegisterState extends State<pageFishermanRegister> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: SingleChildScrollView(
-          child: SafeArea(
-            child: Container(
-              height: MediaQuery.of(context).size.height * 0.9,
-              color: Color(0xffffffff),
-              child: Column(
-                children: [
-                  organismsFishermanRegisterUser(),
-                ],
+        body: SafeArea(
+          child: SingleChildScrollView(
+            child: SafeArea(
+              child: Container(
+                height: MediaQuery.of(context).size.height * 0.9,
+                color: Color(0xffffffff),
+                child: Column(
+                  children: [
+                    organismsFishermanRegisterUser(),
+                  ],
+                ),
               ),
             ),
           ),

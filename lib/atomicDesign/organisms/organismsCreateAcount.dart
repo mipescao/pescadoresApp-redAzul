@@ -16,34 +16,31 @@ class _organismsCreateAcountState extends State<organismsCreateAcount> {
     return Center(
       child: Column(
         children: [
-          SizedBox(height: 30.0),
           atomLogoRedAzul(
             heightImg: MediaQuery.of(context).size.height * 0.2,
           ),
           atomTitle(title: "Crea tu cuenta"),
           SizedBox(height: 10.0),
-          Text("Y se el heroe que le falta al planeta:", 
-          textAlign: TextAlign.center,
-          style: TextStyle(
-            fontSize: 22.0,
-            fontFamily: "NunitoBold",
-            fontWeight: FontWeight.normal,
-            color: Color(0xff0095CD)
-          ),),
-
+          Text(
+            "Y se el heroe que le falta al planeta:",
+            textAlign: TextAlign.center,
+            style: TextStyle(
+                fontSize: 22.0,
+                fontFamily: "NunitoBold",
+                fontWeight: FontWeight.normal,
+                color: Color(0xff0095CD)),
+          ),
           SizedBox(height: 40.0),
-
-          Text("Primero dinos que haces en la pesca:", 
-          textAlign: TextAlign.center,
-          style: TextStyle(
-            fontSize: 22.0,
-            fontFamily: "NunitoBold",
-            fontWeight: FontWeight.w500,
-            color: Color(0xff0095CD)
-          ),),
-
+          Text(
+            "Primero dinos que haces en la pesca:",
+            textAlign: TextAlign.center,
+            style: TextStyle(
+                fontSize: 22.0,
+                fontFamily: "NunitoBold",
+                fontWeight: FontWeight.w500,
+                color: Color(0xff0095CD)),
+          ),
           SizedBox(height: 30.0),
-
           moleculeButtonsOptions()
         ],
       ),
