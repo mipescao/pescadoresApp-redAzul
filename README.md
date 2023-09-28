@@ -1,6 +1,6 @@
-# pescadores
+# pescadoresApp-redAzul
+Repositorio de la aplicación de pescadores de Red Azul (Dart)
 
-A new Flutter project.
 
 ## Getting Started
 
