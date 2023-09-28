@@ -7,7 +7,7 @@ import 'package:pescadores/atomicDesign/atoms/atomTitle.dart';
 import 'package:pescadores/atomicDesign/pages/pagePersonalDates.dart';
 
 // varibale del codigo de verificación
-final String codeEmail = 'A1A1A1A1';
+final String codeEmail = 'A';
 
 // controlador del input
 final myControllerCodeVerification = TextEditingController();

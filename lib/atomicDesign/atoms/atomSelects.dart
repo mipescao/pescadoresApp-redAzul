@@ -1,36 +1,35 @@
 import 'package:flutter/material.dart';
+import 'package:pescadores/atomicDesign/molecules/moleculeInputsInfoContact.dart';
 
-int selectedDay = DateTime.now().day;
-String selectedDocument = 'Cedula de ciudadania';
-int selectedYear = DateTime.now().year;
+String optionSelected = 'Cedula de ciudadania';
 
-class atomSelectsDocument extends StatefulWidget {
-  const atomSelectsDocument({super.key});
+class atomSelects extends StatefulWidget {
+
+  final List<String> arrayOption;
+  final String selectedOption;
+  final Function(String) updateVariableValue;
+
+  const atomSelects({super.key, required this.arrayOption, required this.selectedOption, required this.updateVariableValue});
 
   @override
-  State<atomSelectsDocument> createState() => _atomSelectsDocumentState();
+  State<atomSelects> createState() => _atomSelectsState();
 }
 
-class _atomSelectsDocumentState extends State<atomSelectsDocument> {
-  final List<int> days = List.generate(31, (index) => index + 1);
-  final List<String> documents = [
-    'Cedula de ciudadania',
-    'Febrero',
-    'Marzo',
-    'Abril',
-    'Mayo',
-    'Junio',
-    'Julio',
-    'Agosto',
-    'Septiembre',
-    'Octubre',
-    'Noviembre',
-    'Diciembre'
-  ];
-  final List<int> years =
-      List.generate(100, (index) => DateTime.now().year - index);
-
-  String selectedValue = 'Opción 1';
+class _atomSelectsState extends State<atomSelects> {
+  // final List<String> arrayOption = [
+  //   'Cedula de ciudadania',
+  //   'Febrero',
+  //   'Marzo',
+  //   'Abril',
+  //   'Mayo',
+  //   'Junio',
+  //   'Julio',
+  //   'Agosto',
+  //   'Septiembre',
+  //   'Octubre',
+  //   'Noviembre',
+  //   'Diciembre'
+  // ];
 
   @override
   Widget build(BuildContext context) {
@@ -56,14 +55,16 @@ class _atomSelectsDocumentState extends State<atomSelectsDocument> {
                         padding: EdgeInsets.only(top: 0, left:0, right: 5, bottom: 0),
                         child: DropdownButtonHideUnderline(
                           child: DropdownButton<String>(
-                            value: selectedDocument ,
+                            value: optionSelected ,
                             onChanged: (String? newValue) {
                                 setState(() {
-                                  selectedDocument = newValue!;
+                                  optionSelected = newValue!;
+
+                                  documentSelected1 = newValue;
                                 });
                               },
                               
-                              items: documents.map((String month) {
+                              items: widget.arrayOption.map((String month) {
                                 return DropdownMenuItem<String>(
                                   value: month,
                                   child: Container(
@@ -86,8 +87,6 @@ class _atomSelectsDocumentState extends State<atomSelectsDocument> {
                   );
   }
 }
-
-
 
 // Container(
 //       height: 40.0,
@@ -112,14 +111,14 @@ class _atomSelectsDocumentState extends State<atomSelectsDocument> {
 //           padding: EdgeInsets.only(top: 0, left: 0, right: 5, bottom: 0),
 //           child: DropdownButtonHideUnderline(
 //             child: DropdownButton<String>(
-//               value: selectedDocument,
+//               value: optionSelected,
 //               onChanged: (String? newValue) {
 //                 setState(() {
-//                   selectedDocument = newValue!;
+//                   optionSelected = newValue!;
 //                 });
 //               },
 //               alignment: Alignment.center,
-//               items: documents.map((String month) {
+//               items: arrayOption.map((String month) {
 //                 return DropdownMenuItem<String>(
 //                   value: month,
 //                   child: Container(
