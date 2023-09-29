@@ -5,13 +5,11 @@ import 'package:flutter/material.dart';
 
 class atomOptionsCheckbox extends StatefulWidget {
   final String text;
-  final bool variableValue;
   final ValueChanged<bool?> onChanged;
 
   const atomOptionsCheckbox(
       {super.key,
       required this.text,
-      required this.variableValue,
       required this.onChanged,});
 
   @override
@@ -22,33 +20,24 @@ class _atomOptionsCheckboxState extends State<atomOptionsCheckbox> {
 
   bool _isChecked = false;
 
-  // @override
-  // void initState() {
-  //   super.initState();
-  //   _isChecked = widget.variableValue;
-  // }
-
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
         setState(() {
-          _isChecked = widget.variableValue;
-          widget.onChanged(widget.variableValue);
+          _isChecked = !_isChecked;
+          widget.onChanged(_isChecked);
         });
-        print(widget.variableValue);
       },
       child: Container(
-          // width: 100.0,
           decoration: BoxDecoration(
             border: const Border(
               bottom: BorderSide(
-                // color: Color(0xff707070), // Color del borde superior
                 width: 1.5, // Grosor del borde inferior
               ),
             ),
             // borderRadius: BorderRadius.circular(15.0),
-            color: widget.variableValue ?Colors.transparent :Color(0xff29ABE2),
+            color: _isChecked ?Color(0xff29ABE2) :Colors.transparent,
           ),
           child: Row(
             children: [
@@ -59,7 +48,7 @@ class _atomOptionsCheckboxState extends State<atomOptionsCheckbox> {
                   onChanged: (value) {
                     setState(() {
                       _isChecked = value!;
-                      widget.onChanged(value);
+                      widget.onChanged(_isChecked);
                     });
                   },
                 ),
@@ -71,7 +60,7 @@ class _atomOptionsCheckboxState extends State<atomOptionsCheckbox> {
                   child: Text(
                     widget.text,
                     style: TextStyle(
-                      color: widget.variableValue ?Color(0xff707070) :Color(0xffffffff),
+                      color: _isChecked ?Color(0xffffffff) :Color(0xff707070),
                       fontSize: 22.0,
                       fontWeight: FontWeight.bold,
                     ),

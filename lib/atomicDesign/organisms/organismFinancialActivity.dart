@@ -6,6 +6,7 @@ import 'package:pescadores/atomicDesign/atoms/atomTitle.dart';
 import 'package:pescadores/atomicDesign/molecules/moleculesFinancialAceptShare.dart';
 import 'package:pescadores/atomicDesign/molecules/moleculesFinancialAcount.dart';
 import 'package:pescadores/atomicDesign/molecules/moleculesFinancialSellProducts.dart';
+import 'package:pescadores/atomicDesign/pages/pageFishingArts.dart';
 
 class organismFinancialActivity extends StatefulWidget {
   const organismFinancialActivity({super.key});
@@ -58,5 +59,8 @@ class _organismFinancialActivityState extends State<organismFinancialActivity> {
 
 
 sendformFinancialActivity(context){
-
+  return Navigator.push(
+    context,
+    MaterialPageRoute(builder: (context) => pageFishengArts()),
+  );
 }

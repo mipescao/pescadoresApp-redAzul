@@ -33,12 +33,16 @@ final List<String> ethnicGroup = [
   'Palenquero',
 ];
 
+final arrayOption = ['Soy cabeza de familia', 'Soy una persona en condición de discapacidad.', 'Soy desplazado/a', 'Soy victima del conflicto armado.', 'Pertenezco a la comunidad LGTBIQ+.'];
+
+final jsonOptions = {};
+
 // checkbox del cuadro azul de cabeza de familia, desplazado, etc...
-bool headOfTheFamily = false;
-bool disability = false;
-bool displaced = false;
-bool victimOfTheConflict = false;
-bool lgtbiq = false;
+bool headOfTheFamily = true;
+bool disability = true;
+bool displaced = true;
+bool victimOfTheConflict = true;
+bool lgtbiq = true;
 
 class moleculeInputsMOreAboutYou extends StatefulWidget {
   const moleculeInputsMOreAboutYou({super.key});
@@ -100,79 +104,21 @@ class _moleculeInputsMOreAboutYouState
                       width: 400.0,
                       constraints: BoxConstraints(
                           maxWidth: MediaQuery.of(context).size.width * 0.90),
-                      child: Column(children: [
-                        atomOptionsCheckbox(
-                          text: 'Soy cabeza de familia',
-                          variableValue: headOfTheFamily,
-                          onChanged: (value){
-                            setState(() {
-                              print(value);
-                              if(value == true){
-                                headOfTheFamily = false;
-                              }else{
-                                headOfTheFamily = true;
-                              } 
-                            });
-                          }
-                        ),
-                        atomOptionsCheckbox(
-                          text: 'Soy una persona en condición de discapacidad',
-                          variableValue: disability,
-                          onChanged: (value){
-                            setState(() {
-                              print(value);
-                              if(value == true){
-                                disability = false;
-                              }else{
-                                disability = true;
-                              } 
-                            });
-                          }
-                        ),
-                        atomOptionsCheckbox(
-                          text: 'Soy desplazado',
-                          variableValue: displaced,
-                          onChanged: (value){
-                            setState(() {
-                              print(value);
-                              if(value == true){
-                                displaced = false;
-                              }else{
-                                displaced = true;
-                              } 
-                            });
-                          }
-                        ),
-                                                atomOptionsCheckbox(
-                          text: 'Soy victima del conflicto armado',
-                          variableValue: victimOfTheConflict,
-                          onChanged: (value){
-                            setState(() {
-                              print(value);
-                              if(value == true){
-                                victimOfTheConflict = false;
-                              }else{
-                                victimOfTheConflict = true;
-                              } 
-                            });
-                          }
-                        ),
-                        atomOptionsCheckbox(
-                          text: 'Pertenezco a la comunidad LGTBIQ+',
-                          variableValue: lgtbiq,
-                          onChanged: (value){
-                            setState(() {
-                              print(value);
-                              if(value == true){
-                                lgtbiq = false;
-                              }else{
-                                lgtbiq = true;
-                              } 
-                            });
-                          }
-                        ),
-
-                      ]),
+                      child: 
+                      Column(
+                        children: arrayOption.map((e){
+                          return atomOptionsCheckbox(
+                            text: e,
+                              onChanged: (value){
+                                setState(() {
+                                  print(value);
+                                  jsonOptions[e] = value;
+                                });
+                              }
+                            );
+                          
+                        }).toList(),
+                      ),
                     )),
               ),
             ],
@@ -189,64 +135,9 @@ class _moleculeInputsMOreAboutYouState
 }
 
 sendformMoreAboutYou(context) {
+  // print(jsonOptions);
   return Navigator.push(
     context,
     MaterialPageRoute(builder: (context) => pageFinancialActivity()),
   );
 }
-
-    // void updateValueCheckbox(String variableName, bool newValue) {
-    //   setState(() {
-    //     if (variableName == 'headOfTheFamily') {
-    //       if (newValue == true) {
-    //         headOfTheFamily = false;
-    //         backColorheadOfTheFamily = Colors.transparent;
-    //         colorheadOfTheFamily = Color(0xff707070);
-    //       } else {
-    //         headOfTheFamily = true;
-    //         backColorheadOfTheFamily = Color(0xff29abe2);
-    //         colorheadOfTheFamily = Color(0xffffffff);
-    //       }
-    //     } else if (variableName == 'disability') {
-    //       if (newValue == true) {
-    //         disability = false;
-    //         backColordisability = Colors.transparent;
-    //         colordisability = Color(0xff707070);
-    //       } else {
-    //         disability = true;
-    //         backColordisability = Color(0xff29abe2);
-    //         colordisability = Color(0xffffffff);
-    //       }
-    //     } else if (variableName == 'displaced') {
-    //       if (newValue == true) {
-    //         displaced = false;
-    //         backColordisplaced = Colors.transparent;
-    //         colordisplaced = Color(0xff707070);
-    //       } else {
-    //         displaced = true;
-    //         backColordisplaced = Color(0xff29abe2);
-    //         colordisplaced = Color(0xffffffff);
-    //       }
-    //     } else if (variableName == 'victimOfTheConflict') {
-    //       if (newValue == true) {
-    //         victimOfTheConflict = false;
-    //         backColorvictimOfTheConflict = Colors.transparent;
-    //         colorvictimOfTheConflict = Color(0xff707070);
-    //       } else {
-    //         victimOfTheConflict = true;
-    //         backColorvictimOfTheConflict = Color(0xff29abe2);
-    //         colorvictimOfTheConflict = Color(0xffffffff);
-    //       }
-    //     } else {
-    //       if (newValue == true) {
-    //         lgtbiq = false;
-    //         backColorlgtbiq = Colors.transparent;
-    //         colorlgtbiq = Color(0xff707070);
-    //       } else {
-    //         lgtbiq = true;
-    //         colorlgtbiq = Color(0xffffffff);
-    //         backColorlgtbiq = Color(0xff29abe2);
-    //       }
-    //     }
-    //   });
-    // }
