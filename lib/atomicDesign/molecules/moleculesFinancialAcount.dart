@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pescadores/atomicDesign/atoms/atomSelects80%.dart';
-import 'package:pescadores/styles/stylesfinancialActivity.dart';
+import 'package:pescadores/styles/styles.dart';
 
 // variables  de los checkbox
 bool valueSiAcount = true;

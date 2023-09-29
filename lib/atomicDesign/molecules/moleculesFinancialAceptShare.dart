@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pescadores/styles/stylesfinancialActivity.dart';
+import 'package:pescadores/styles/styles.dart';
 
 // variables  de los checkbox
 bool valueSiAceptShare = true;
