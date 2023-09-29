@@ -49,17 +49,30 @@ class _moleculeInputsInfoContactState extends State<moleculeInputsInfoContact> {
       child: Column(
         children: [
           atomSelects(
-              nameVariable: 'departamentSelected',
-              selectedOption: departamentSelected,
-              arrayOption: departaments,
-              updateVariableValue: updateValue),
+            items: departaments,
+            selectedItem: departamentSelected,
+            onChanged: (selectedItem) {
+              // Manejar la opción seleccionada aquí
+              setState(() {
+                departamentSelected = selectedItem!;
+              });
+              // print('Opción seleccionada: $selectedItem');
+            },
+          ),
           SizedBox(height: 40.0),
           atomSelects(
-              nameVariable: 'municipalitySelected',
-              selectedOption: municipalitySelected,
-              arrayOption: municipalities,
-              updateVariableValue: updateValue),
+            items: municipalities,
+            selectedItem: municipalitySelected,
+            onChanged: (selectedItem) {
+              // Manejar la opción seleccionada aquí
+              setState(() {
+                municipalitySelected = selectedItem!;
+              });
+              // print('Opción seleccionada: $selectedItem');
+            },
+          ),
           SizedBox(height: 40.0),
+          
           atomInputForm(
               controllerInput: myControllerDirection,
               textInput: 'Dirección',

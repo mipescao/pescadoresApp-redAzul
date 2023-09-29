@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pescadores/atomicDesign/organisms/organimsMoreAboutYoy.dart';
+import 'package:pescadores/atomicDesign/organisms/organimsMoreAboutYou.dart';
 
 class pageMoreAboutYou extends StatefulWidget {
   const pageMoreAboutYou({super.key});
@@ -18,7 +18,7 @@ class _pageMoreAboutYouState extends State<pageMoreAboutYou> {
           child: Container(
             child: Column(
               children: [
-                organimsMoreAboutYoy(),
+                organimsMoreAboutYou(),
               ],
             ),
           ),

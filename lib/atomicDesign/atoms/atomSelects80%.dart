@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class atomSelects<String> extends StatelessWidget {
+class SelectionWidget<String> extends StatelessWidget {
   final List<String> items;
   final void Function(String?) onChanged;
   final String? selectedItem;
 
-  atomSelects({
+  SelectionWidget({
     required this.items,
     required this.onChanged,
     this.selectedItem,
@@ -17,7 +17,7 @@ class atomSelects<String> extends StatelessWidget {
       // height: 40.0,
       width: 400.0,
       constraints:
-          BoxConstraints(maxWidth: MediaQuery.of(context).size.width * 0.90),
+          BoxConstraints(maxWidth: MediaQuery.of(context).size.width * 0.80),
       decoration: BoxDecoration(
         color: Color(0xffffffff),
         borderRadius:
@@ -40,10 +40,9 @@ class atomSelects<String> extends StatelessWidget {
                 onChanged: onChanged,
                 items: items.map<DropdownMenuItem<String>>((String value) {
                   return DropdownMenuItem<String>(
-
                     value: value,
                     child: Container(
-                      width: MediaQuery.of(context).size.width * 0.80,
+                      width: MediaQuery.of(context).size.width * 0.70,
                       child: Text(value.toString(),
                       textAlign: TextAlign.center,
                             style:

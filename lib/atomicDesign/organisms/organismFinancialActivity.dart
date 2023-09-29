@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:pescadores/atomicDesign/atoms/atomButtonSend.dart';
 import 'package:pescadores/atomicDesign/atoms/atomLogoRedAzul.dart';
 import 'package:pescadores/atomicDesign/atoms/atomSubtitle.dart';
 import 'package:pescadores/atomicDesign/atoms/atomTitle.dart';
-import 'package:pescadores/atomicDesign/molecules/moleculesSectionFinancialActivity.dart';
+import 'package:pescadores/atomicDesign/molecules/moleculesFinancialAceptShare.dart';
+import 'package:pescadores/atomicDesign/molecules/moleculesFinancialAcount.dart';
+import 'package:pescadores/atomicDesign/molecules/moleculesFinancialSellProducts.dart';
 
 class organismFinancialActivity extends StatefulWidget {
   const organismFinancialActivity({super.key});
@@ -27,13 +30,33 @@ class _organismFinancialActivityState extends State<organismFinancialActivity> {
           ),
           atomSubtitle(
               subtitle:
-                  'Para vendertus productos por medio  de miPescao debes tener una cuenta bancaria'),
+                  'Para vender tus productos por medio  de miPescao debes tener una cuenta bancaria'),
           SizedBox(
             height: 30.0,
           ),
-          moleculeSellProductsmiPescao()
+          moleculeSellProductsmiPescao(),
+          SizedBox(
+            height: 30.0,
+          ),
+          moleculesFinancialAcount(),
+          SizedBox(
+            height: 30.0,
+          ),
+          moleculesFinancialAceptShare(),
+          SizedBox(
+            height: 30.0,
+          ),
+          atomButtonForm(text: 'enviar', function: sendformFinancialActivity),
+          SizedBox(
+            height: 30.0,
+          ), 
         ],
       ),
     );
   }
+}
+
+
+sendformFinancialActivity(context){
+
 }

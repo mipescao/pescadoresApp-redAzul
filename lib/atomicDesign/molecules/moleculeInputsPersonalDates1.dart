@@ -3,7 +3,7 @@ import 'package:pescadores/atomicDesign/atoms/atomButtonSend.dart';
 import 'package:pescadores/atomicDesign/atoms/atomInputDouble.dart';
 import 'package:pescadores/atomicDesign/atoms/atomInputImage.dart';
 import 'package:pescadores/atomicDesign/atoms/atomInputs.dart';
-import 'package:pescadores/atomicDesign/atoms/atomSelectDocument.dart';
+import 'package:pescadores/atomicDesign/atoms/atomSelects.dart';
 import 'package:pescadores/atomicDesign/atoms/atomSubtitle.dart';
 import 'package:pescadores/atomicDesign/pages/pageInfoContact.dart';
 
@@ -13,6 +13,13 @@ final myControllerLastName = TextEditingController();
 final myControllerNickName = TextEditingController();
 final myControllerNumberDocument = TextEditingController();
 final myControllerCarnetAunap = TextEditingController();
+
+String selectedDocument = 'Cedula de ciudadania';
+final List<String> documents = [
+  'Cedula de ciudadania',
+  'Tarjeta de identidad',
+  'Pasaporte',
+];
 
 bool isCheckedSi = false;
 bool isCheckedNo = true;
@@ -50,7 +57,17 @@ class _moleculeInputsPersonalDates1State
               textInput: 'Sobrenombre',
               icon: Icon(Icons.password, color: Colors.transparent)),
           SizedBox(height: 30.0),
-          atomSelectsDocument(),
+          atomSelects(
+            items: documents,
+            selectedItem: selectedDocument,
+            onChanged: (selectedItem) {
+              // Manejar la opción seleccionada aquí
+              setState(() {
+                selectedDocument = selectedItem!;
+              });
+              // print('Opción seleccionada: $selectedItem');
+            },
+          ),
           SizedBox(height: 30.0),
           atomInputForm(
               controllerInput: myControllerNumberDocument,

@@ -14,7 +14,7 @@ class _atomTitleState extends State<atomTitle> {
   Widget build(BuildContext context) {
     return Container(
       constraints:
-          BoxConstraints(maxWidth: MediaQuery.of(context).size.width * 0.95),
+          BoxConstraints(maxWidth: MediaQuery.of(context).size.width * 0.90),
       child: Text(
         widget.title,
         textAlign: TextAlign.center,

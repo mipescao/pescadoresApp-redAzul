@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:pescadores/atomicDesign/atoms/atomLogoRedAzul.dart';
-import 'package:pescadores/atomicDesign/molecules/moleculeInputsMOreAboutYou.dart';
+import 'package:pescadores/atomicDesign/molecules/moleculeInputsMoreAboutYou.dart';
 
-class organimsMoreAboutYoy extends StatefulWidget {
-  const organimsMoreAboutYoy({super.key});
+class organimsMoreAboutYou extends StatefulWidget {
+  const organimsMoreAboutYou({super.key});
 
   @override
-  State<organimsMoreAboutYoy> createState() => _organimsMoreAboutYoyState();
+  State<organimsMoreAboutYou> createState() => _organimsMoreAboutYouState();
 }
 
-class _organimsMoreAboutYoyState extends State<organimsMoreAboutYoy> {
+class _organimsMoreAboutYouState extends State<organimsMoreAboutYou> {
   @override
   Widget build(BuildContext context) {
     return Center(

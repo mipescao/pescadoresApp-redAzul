@@ -52,14 +52,6 @@ class _moleculeInputsMOreAboutYouState
     extends State<moleculeInputsMOreAboutYou> {
   @override
   Widget build(BuildContext context) {
-    // selects
-    void updateValue(String variableName, String newValue) {
-      if (variableName == 'genderSelected') {
-        genderSelected = newValue;
-      } else if (ethnicGroupSelected == 'ethnicGroupSelected') {
-        ethnicGroupSelected = newValue;
-      }
-    }
 
     // checkbox
     void updateValueCheckbox(String variableName, bool newValue) {
@@ -126,16 +118,28 @@ class _moleculeInputsMOreAboutYouState
           atomSelectsYear(),
           SizedBox(height: 30.0),
           atomSelects(
-              nameVariable: 'genderSelected',
-              selectedOption: genderSelected,
-              arrayOption: gender,
-              updateVariableValue: updateValue),
+            items: gender,
+            selectedItem: genderSelected,
+            onChanged: (selectedItem) {
+              // Manejar la opción seleccionada aquí
+              setState(() {
+                genderSelected = selectedItem!;
+              });
+              // print('Opción seleccionada: $selectedItem');
+            },
+          ),
           SizedBox(height: 30.0),
           atomSelects(
-              nameVariable: 'ethnicGroupSelected',
-              selectedOption: ethnicGroupSelected,
-              arrayOption: ethnicGroup,
-              updateVariableValue: updateValue),
+            items: ethnicGroup,
+            selectedItem: ethnicGroupSelected,
+            onChanged: (selectedItem) {
+              // Manejar la opción seleccionada aquí
+              setState(() {
+                ethnicGroupSelected = selectedItem!;
+              });
+              // print('Opción seleccionada: $selectedItem');
+            },
+          ),
           SizedBox(height: 30.0),
           Column(
             children: [
