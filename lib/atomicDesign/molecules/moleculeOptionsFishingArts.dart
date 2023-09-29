@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pescadores/atomicDesign/atoms/atomButtonSend.dart';
 import 'package:pescadores/atomicDesign/atoms/atomOptionsCheckbox.dart';
+import 'package:pescadores/atomicDesign/pages/pagesFishingActivity.dart';
 
 final jsonFishingArts = {};
 
@@ -60,4 +61,8 @@ class _moleculeOptionsFishingArtsState extends State<moleculeOptionsFishingArts>
 
 sendFishingArts(context){
   print(jsonFishingArts);
+  return Navigator.push(
+    context,
+    MaterialPageRoute(builder: (context) => pageFishingActivity()),
+  );
 }
