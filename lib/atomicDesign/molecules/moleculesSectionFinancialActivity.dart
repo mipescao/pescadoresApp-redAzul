@@ -43,6 +43,7 @@ class _moleculeSellProductsmiPescaoState
                       ),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           Text(
                               '¿Quieres vender tus productos por medio de miPescao?'),
