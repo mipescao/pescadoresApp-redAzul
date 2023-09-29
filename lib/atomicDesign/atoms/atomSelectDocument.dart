@@ -38,7 +38,7 @@ class _atomSelectsDocumentState extends State<atomSelectsDocument> {
                     height: 40.0,
                     width: 400.0,
                     constraints: BoxConstraints(
-                      maxWidth: MediaQuery.of(context).size.width * 0.95),
+                      maxWidth: MediaQuery.of(context).size.width * 0.90),
                     decoration: BoxDecoration(
                       color: Color(0xffffffff),
                       borderRadius: BorderRadius.circular(20.0), // Agrega el border-radius deseado

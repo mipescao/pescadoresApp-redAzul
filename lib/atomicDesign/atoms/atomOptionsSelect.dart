@@ -11,7 +11,7 @@ class _atomOptionsSelectState extends State<atomOptionsSelect> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: MediaQuery.of(context).size.width * 0.95,
+      width: MediaQuery.of(context).size.width * 0.90,
       decoration: BoxDecoration(
           border: Border.all(), borderRadius: BorderRadius.circular(15.0)),
       padding: const EdgeInsets.all(8.0),

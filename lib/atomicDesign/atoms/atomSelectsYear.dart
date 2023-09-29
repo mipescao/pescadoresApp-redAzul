@@ -31,7 +31,7 @@ class _atomSelectsYearState extends State<atomSelectsYear> {
     return Container(
       width: 400.0,
         constraints: BoxConstraints(
-          maxWidth: MediaQuery.of(context).size.width * 0.95),
+          maxWidth: MediaQuery.of(context).size.width * 0.90),
         child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
           children: [

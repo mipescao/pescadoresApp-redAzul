@@ -37,7 +37,7 @@ class _atomInputImageState extends State<atomInputImage> {
       width: 400.0,
       // height: 45.0,
       constraints:
-          BoxConstraints(maxWidth: MediaQuery.of(context).size.width * 0.95),
+          BoxConstraints(maxWidth: MediaQuery.of(context).size.width * 0.90),
       decoration: BoxDecoration(
         color: Color(0xffffffff),
         borderRadius:

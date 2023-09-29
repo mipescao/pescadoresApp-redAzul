@@ -31,7 +31,7 @@ class _atomInputDoubleState extends State<atomInputDouble> {
             width: 400.0,
             height: 45.0,
             constraints: BoxConstraints(
-                maxWidth: MediaQuery.of(context).size.width * 0.46),
+                maxWidth: MediaQuery.of(context).size.width * 0.43),
             decoration: BoxDecoration(
               color: Color(0xffffffff),
               borderRadius: BorderRadius.circular(
@@ -71,7 +71,7 @@ class _atomInputDoubleState extends State<atomInputDouble> {
             width: 400.0,
             height: 45.0,
             constraints: BoxConstraints(
-                maxWidth: MediaQuery.of(context).size.width * 0.46),
+                maxWidth: MediaQuery.of(context).size.width * 0.43),
             decoration: BoxDecoration(
               color: Color(0xffffffff),
               borderRadius: BorderRadius.circular(
