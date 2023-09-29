@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pescadores/atomicDesign/organisms/organismFinancialActivity.dart';
 
 class pageFinancialActivity extends StatefulWidget {
   const pageFinancialActivity({super.key});
@@ -14,7 +15,7 @@ class _pageFinancialActivityState extends State<pageFinancialActivity> {
       body: SafeArea(
           child: SingleChildScrollView(
         child: Column(
-          children: [],
+          children: [organismFinancialActivity()],
         ),
       )),
     );

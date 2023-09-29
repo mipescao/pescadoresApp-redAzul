@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:pescadores/atomicDesign/atoms/atomLogoRedAzul.dart';
-import 'package:pescadores/atomicDesign/atoms/atomSelectsYear.dart';
 import 'package:pescadores/atomicDesign/molecules/moleculeInputsMOreAboutYou.dart';
 
 class organimsMoreAboutYoy extends StatefulWidget {

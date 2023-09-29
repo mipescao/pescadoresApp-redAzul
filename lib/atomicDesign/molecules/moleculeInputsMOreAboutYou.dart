@@ -69,7 +69,7 @@ class _moleculeInputsMOreAboutYouState
             headOfTheFamily = false;
             backColorheadOfTheFamily = Colors.transparent;
             colorheadOfTheFamily = Color(0xff707070);
-          } else if (newValue == false) {
+          } else {
             headOfTheFamily = true;
             backColorheadOfTheFamily = Color(0xff29abe2);
             colorheadOfTheFamily = Color(0xffffffff);
@@ -79,7 +79,7 @@ class _moleculeInputsMOreAboutYouState
             disability = false;
             backColordisability = Colors.transparent;
             colordisability = Color(0xff707070);
-          } else if (newValue == false) {
+          } else {
             disability = true;
             backColordisability = Color(0xff29abe2);
             colordisability = Color(0xffffffff);
@@ -89,7 +89,7 @@ class _moleculeInputsMOreAboutYouState
             displaced = false;
             backColordisplaced = Colors.transparent;
             colordisplaced = Color(0xff707070);
-          } else if (newValue == false) {
+          } else {
             displaced = true;
             backColordisplaced = Color(0xff29abe2);
             colordisplaced = Color(0xffffffff);
@@ -99,17 +99,17 @@ class _moleculeInputsMOreAboutYouState
             victimOfTheConflict = false;
             backColorvictimOfTheConflict = Colors.transparent;
             colorvictimOfTheConflict = Color(0xff707070);
-          } else if (newValue == false) {
+          } else {
             victimOfTheConflict = true;
             backColorvictimOfTheConflict = Color(0xff29abe2);
             colorvictimOfTheConflict = Color(0xffffffff);
           }
-        } else if (variableName == 'lgtbiq') {
+        } else {
           if (newValue == true) {
             lgtbiq = false;
             backColorlgtbiq = Colors.transparent;
             colorlgtbiq = Color(0xff707070);
-          } else if (newValue == false) {
+          } else {
             lgtbiq = true;
             colorlgtbiq = Color(0xffffffff);
             backColorlgtbiq = Color(0xff29abe2);
@@ -186,7 +186,6 @@ class _moleculeInputsMOreAboutYouState
                           colorBackground: backColorvictimOfTheConflict,
                           colorText: colorvictimOfTheConflict,
                         ),
-                        SizedBox(height: 10.0),
                         atomOptionsCheckbox(
                           text: 'Pertenezco a la comunidad LGTBIQ+',
                           variableName: 'lgtbiq',
