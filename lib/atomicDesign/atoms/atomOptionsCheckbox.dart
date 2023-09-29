@@ -6,32 +6,37 @@ import 'package:flutter/material.dart';
 class atomOptionsCheckbox extends StatefulWidget {
   final String text;
   final bool variableValue;
-  final String variableName;
-  final Function updateVariableValue;
-  final Color colorText;
-  final Color colorBackground;
+  final ValueChanged<bool?> onChanged;
 
   const atomOptionsCheckbox(
       {super.key,
       required this.text,
       required this.variableValue,
-      required this.variableName,
-      required this.updateVariableValue,
-      required this.colorBackground,
-      required this.colorText});
+      required this.onChanged,});
 
   @override
   State<atomOptionsCheckbox> createState() => _atomOptionsCheckboxState();
 }
 
 class _atomOptionsCheckboxState extends State<atomOptionsCheckbox> {
+
+  bool _isChecked = false;
+
+  // @override
+  // void initState() {
+  //   super.initState();
+  //   _isChecked = widget.variableValue;
+  // }
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
         setState(() {
-          widget.updateVariableValue(widget.variableName, widget.variableValue);
+          _isChecked = widget.variableValue;
+          widget.onChanged(widget.variableValue);
         });
+        print(widget.variableValue);
       },
       child: Container(
           // width: 100.0,
@@ -43,19 +48,21 @@ class _atomOptionsCheckboxState extends State<atomOptionsCheckbox> {
               ),
             ),
             // borderRadius: BorderRadius.circular(15.0),
-            color: widget.colorBackground,
+            color: widget.variableValue ?Colors.transparent :Color(0xff29ABE2),
           ),
           child: Row(
             children: [
               Padding(
                 padding: const EdgeInsets.only(left: 20.0),
                 child: Checkbox(
-                    value: widget.variableValue,
-                    onChanged: (bool? value) {
-                      setState(() {
-                        widget.updateVariableValue(widget.variableName, value);
-                      });
-                    }),
+                  value: _isChecked,
+                  onChanged: (value) {
+                    setState(() {
+                      _isChecked = value!;
+                      widget.onChanged(value);
+                    });
+                  },
+                ),
               ),
               Padding(
                 padding: const EdgeInsets.only(left: 20.0),
@@ -64,7 +71,7 @@ class _atomOptionsCheckboxState extends State<atomOptionsCheckbox> {
                   child: Text(
                     widget.text,
                     style: TextStyle(
-                      color: widget.colorText,
+                      color: widget.variableValue ?Color(0xff707070) :Color(0xffffffff),
                       fontSize: 22.0,
                       fontWeight: FontWeight.bold,
                     ),
