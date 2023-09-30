@@ -26,7 +26,7 @@ class _moleculeButtonsOptionsState extends State<moleculeButtonsOptions> {
           ),
           atomButtonOptions(
               text: 'No pesco pero soy dueño de faenas',
-              function: soyPescador,
+              function: OwnerOfFaenas,
               image: 'assets/images/propietarioFaena.png',
               widthImage: 42.0,
               colorButton: Color(0xff0487d9)),
@@ -35,7 +35,7 @@ class _moleculeButtonsOptionsState extends State<moleculeButtonsOptions> {
           ),
           atomButtonOptions(
               text: 'Soy una organización de pescadores',
-              function: soyPescador,
+              function: fishingOrganization,
               image: 'assets/images/pescadoresOrganizacion.png',
               widthImage: 80.0,
               colorButton: Color(0xff29abe2)),
@@ -50,4 +50,12 @@ soyPescador(context) {
     context,
     MaterialPageRoute(builder: (context) => pageFishermanRegister()),
   );
+}
+
+OwnerOfFaenas(context){
+  print("object");
+}
+
+fishingOrganization(){
+  print("object");
 }

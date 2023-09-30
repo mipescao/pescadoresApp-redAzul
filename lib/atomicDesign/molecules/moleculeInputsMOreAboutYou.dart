@@ -112,7 +112,14 @@ class _moleculeInputsMOreAboutYouState
                               onChanged: (value){
                                 setState(() {
                                   print(value);
-                                  jsonOptions[e] = value;
+                                  if(value == true){
+                                    jsonOptions[e] = value;
+                                  }else{
+                                    if(jsonOptions[e]){
+                                      jsonOptions.remove(e);
+                                    }
+                                  }
+                                  
                                 });
                               }
                             );
@@ -135,7 +142,7 @@ class _moleculeInputsMOreAboutYouState
 }
 
 sendformMoreAboutYou(context) {
-  // print(jsonOptions);
+  print(jsonOptions);
   return Navigator.push(
     context,
     MaterialPageRoute(builder: (context) => pageFinancialActivity()),

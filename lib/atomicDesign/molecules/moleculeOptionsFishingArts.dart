@@ -40,8 +40,13 @@ class _moleculeOptionsFishingArtsState extends State<moleculeOptionsFishingArts>
                                   text: e,
                                     onChanged: (value){
                                       setState(() {
-                                        print(value);
+                                        if(value == true){
                                         jsonFishingArts[e] = value;
+                                        }else{
+                                          if(jsonFishingArts[e]){
+                                            jsonFishingArts.remove(e);
+                                          }
+                                        }                                  
                                       });
                                     }
                                   );
