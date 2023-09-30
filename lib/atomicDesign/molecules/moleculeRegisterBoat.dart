@@ -29,18 +29,20 @@ class _moleculeRegisterBoatState extends State<moleculeRegisterBoat> {
         SizedBox(height: 30.0),
         atomInputForm(controllerInput: myControllerNameBoat, textInput: 'Nombre de la embarcación', icon: Icon(Icons.password, color: Colors.transparent)),
         SizedBox(height: 30.0),
+        CustomDropdown()
+        // MyDropdown()
           // atomSelects()
-          atomSelects(
-            items: typeBoats,
-            selectedItem: typeBoatSelected,
-            onChanged: (selectedItem) {
-              // Manejar la opción seleccionada aquí
-              setState(() {
-                typeBoatSelected = selectedItem!;
-              });
-              // print('Opción seleccionada: $selectedItem');
-            },
-          ),
+          // atomSelects(
+          //   items: typeBoats,
+          //   selectedItem: typeBoatSelected,
+          //   onChanged: (selectedItem) {
+          //     // Manejar la opción seleccionada aquí
+          //     setState(() {
+          //       typeBoatSelected = selectedItem!;
+          //     });
+          //     // print('Opción seleccionada: $selectedItem');
+          //   },
+          // ),
       ],
     );
   }
