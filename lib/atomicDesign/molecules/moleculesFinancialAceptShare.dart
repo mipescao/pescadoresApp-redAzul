@@ -3,8 +3,7 @@ import 'package:pescadores/styles/styles.dart';
 
 // variables  de los checkbox
 bool valueSiAceptShare = true;
-bool valueNoAcceptShare= false;
-
+bool valueNoAcceptShare = false;
 
 class moleculesFinancialAceptShare extends StatefulWidget {
   const moleculesFinancialAceptShare({super.key});
@@ -34,14 +33,15 @@ class _moleculesFinancialAceptShareState
                         borderRadius: BorderRadius.circular(14.0),
                         color: Color(0xff0095CD),
                       ),
-                      
                       child: Column(
                         children: [
                           SizedBox(height: 15.0),
                           Padding(
                             padding: const EdgeInsets.all(4.0),
                             child: Text(
-                                '¿Aceptas que miPescao comparta información de tu actividad comercial pesquera con entidades financieras y otras para acceder a créditos y beneficios?', style: styleFinancialActivity.textWhite, textAlign: TextAlign.center),
+                                '¿Aceptas que miPescao comparta información de tu actividad comercial pesquera con entidades financieras y otras para acceder a créditos y beneficios?',
+                                style: styleTextSections.textWhite,
+                                textAlign: TextAlign.center),
                           ),
                           SizedBox(height: 15.0),
                           Center(
@@ -50,32 +50,33 @@ class _moleculesFinancialAceptShareState
                               children: [
                                 Row(
                                   children: [
-                                    Text('Si', style: styleFinancialActivity.textWhite),
+                                    Text('Si',
+                                        style: styleTextSections.textWhite),
                                     SizedBox(width: 10.0),
                                     Container(
                                       // Personaliza el Checkbox usando un Container
                                       decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(5.0),
-                                        color: valueSiAceptShare ? Color(0xffFBB03B) : Color(0xff0095CD),
-                                        border: Border.all(
-                                          color: Color(0xffffffff)
-                                        )
-                                      ),
+                                          borderRadius:
+                                              BorderRadius.circular(5.0),
+                                          color: valueSiAceptShare
+                                              ? Color(0xffFBB03B)
+                                              : Color(0xff0095CD),
+                                          border: Border.all(
+                                              color: Color(0xffffffff))),
                                       child: Padding(
                                         padding: const EdgeInsets.all(4.0),
                                         child: InkWell(
                                           onTap: () {
                                             // Cambia el estado del Checkbox al hacer clic
                                             setState(() {
-                                            if (valueSiAceptShare == true) {
-                                              valueNoAcceptShare= true;
-                                              valueSiAceptShare = false;
-                                            } else{
-                                              valueNoAcceptShare= false;
-                                              valueSiAceptShare = true;
-                                            }
+                                              if (valueSiAceptShare == true) {
+                                                valueNoAcceptShare = true;
+                                                valueSiAceptShare = false;
+                                              } else {
+                                                valueNoAcceptShare = false;
+                                                valueSiAceptShare = true;
+                                              }
                                             });
-
                                           },
                                           child: valueSiAceptShare
                                               ? Icon(
@@ -93,35 +94,38 @@ class _moleculesFinancialAceptShareState
                                     ),
                                   ],
                                 ),
-                                SizedBox(width: 50.0,),
+                                SizedBox(
+                                  width: 50.0,
+                                ),
                                 Row(
                                   children: [
-                                    Text('No', style:  styleFinancialActivity.textWhite),
+                                    Text('No',
+                                        style: styleTextSections.textWhite),
                                     SizedBox(width: 10.0),
                                     Container(
                                       // Personaliza el Checkbox usando un Container
                                       decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(5.0),
-                                        color: valueNoAcceptShare? Color(0xffFBB03B) : Color(0xff0095CD),
-                                        border: Border.all(
-                                          color: Color(0xffffffff)
-                                        )
-                                      ),
+                                          borderRadius:
+                                              BorderRadius.circular(5.0),
+                                          color: valueNoAcceptShare
+                                              ? Color(0xffFBB03B)
+                                              : Color(0xff0095CD),
+                                          border: Border.all(
+                                              color: Color(0xffffffff))),
                                       child: Padding(
                                         padding: const EdgeInsets.all(4.0),
                                         child: InkWell(
                                           onTap: () {
                                             // Cambia el estado del Checkbox al hacer clic
                                             setState(() {
-                                              if (valueNoAcceptShare== true) {
+                                              if (valueNoAcceptShare == true) {
                                                 valueSiAceptShare = true;
-                                                valueNoAcceptShare= false;
-                                              } else{
+                                                valueNoAcceptShare = false;
+                                              } else {
                                                 valueSiAceptShare = false;
-                                                valueNoAcceptShare= true;
+                                                valueNoAcceptShare = true;
                                               }
                                             });
-                                            
                                           },
                                           child: valueNoAcceptShare
                                               ? Icon(
@@ -145,7 +149,6 @@ class _moleculesFinancialAceptShareState
                           SizedBox(height: 15.0)
                         ],
                       ),
-                    
                     ),
                   ),
                 ],
