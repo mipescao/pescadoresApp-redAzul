@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:pescadores/atomicDesign/pages/pageMain.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+final arrayPages = ['pageMainPage', 'pageCreateAcount'];
+
 
 void main() {
   runApp(const MyApp());
@@ -14,6 +17,7 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -22,7 +26,7 @@ class _MyAppState extends State<MyApp> {
       theme: ThemeData(
         textTheme: GoogleFonts.nunitoTextTheme(),
       ),
-      home: const pageMainPage(),
+      home: pageMainPage(),
     );
   }
 }

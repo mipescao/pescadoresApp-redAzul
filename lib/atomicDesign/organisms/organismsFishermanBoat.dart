@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:pescadores/atomicDesign/atoms/atomButtonSend.dart';
 import 'package:pescadores/atomicDesign/atoms/atomLogoRedAzul.dart';
 import 'package:pescadores/atomicDesign/molecules/moleculeRegisterBoat.dart';
 
@@ -21,9 +22,20 @@ class _organismsFishermanBoatState extends State<organismsFishermanBoat> {
               heightImg: MediaQuery.of(context).size.height * 0.2,
             ),
             moleculeRegisterBoat(),
+            SizedBox(height: 30.0),
+            moleculeBoatMatriculed(),
+            SizedBox(height: 30.0),
+            atomButtonForm(text: 'Enviar', function: saveDatesBoat),
+            SizedBox(height: 30.0),
+            
+          
           ],
         ),
       ),
     );
   }
+}
+
+saveDatesBoat(context){
+  print(myControllerNameBoat.text);
 }

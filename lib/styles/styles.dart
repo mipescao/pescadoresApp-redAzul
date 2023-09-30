@@ -31,4 +31,23 @@ class styleFinancialActivity{
     color: colores.gray1,
     fontFamily: "quicksand",
   );
+
+}
+
+class styleSections{
+  static BoxDecoration containerBlue = BoxDecoration(
+      borderRadius: BorderRadius.only(
+        topLeft: Radius.circular(14.0),
+        topRight: Radius.circular(14.0)),
+      color: Color(0xff0095CD),
+  );
+
+  static BoxDecoration containerBorderBlue = BoxDecoration(
+    borderRadius: BorderRadius.only(
+        bottomLeft: Radius.circular(14.0),
+        bottomRight: Radius.circular(14.0)),
+    border: Border.all(color: Color(0xff0095cd)),
+    color: Color(0xffffffff),
+  );
+
 }

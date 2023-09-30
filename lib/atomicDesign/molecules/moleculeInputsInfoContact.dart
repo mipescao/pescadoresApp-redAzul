@@ -98,7 +98,12 @@ class _moleculeInputsInfoContactState extends State<moleculeInputsInfoContact> {
 }
 
 sendInfoContact(context) {
-  print("object");
+  
+  print(myControllerDirection.text);
+  print(myControllerPhone.text);
+  print(myControllerEmergencyPhone.text);
+  print(departamentSelected);
+  print(municipalitySelected);
   return Navigator.push(
     context,
     MaterialPageRoute(builder: (context) => pageMoreAboutYou()),

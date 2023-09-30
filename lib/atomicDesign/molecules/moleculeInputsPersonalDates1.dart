@@ -188,6 +188,16 @@ class _moleculeInputsPersonalDates1State
 }
 
 savePersonalDates(context) {
+  print(myControllerFirstName.text);
+  print(myControllerSecondName.text);
+  print(myControllerLastName.text);
+  print(myControllerNickName.text);
+  print(myControllerNumberDocument.text);
+  if(isCheckedSi == true){
+      print(myControllerCarnetAunap.text);
+  }
+  
+
   return Navigator.push(
     context,
     MaterialPageRoute(builder: (context) => pageInfoContact()),
