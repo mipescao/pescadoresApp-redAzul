@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pescadores/atomicDesign/organisms/organismFinancialActivity.dart';
+import 'package:pescadores/atomicDesign/organisms/organismsFinancialActivity.dart';
 
 class pageFinancialActivity extends StatefulWidget {
   const pageFinancialActivity({super.key});

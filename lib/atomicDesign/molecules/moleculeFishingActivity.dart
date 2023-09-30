@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:pescadores/atomicDesign/atoms/atomButtonOptions.dart';
 import 'package:pescadores/atomicDesign/atoms/atomLogoRedAzul.dart';
 import 'package:pescadores/atomicDesign/atoms/atomTitle.dart';
+import 'package:pescadores/atomicDesign/pages/pageFishermanBoat.dart';
 import 'package:pescadores/atomicDesign/pages/pageFishingZone.dart';
 
 class moleculeFishingActivity extends StatefulWidget {
@@ -39,6 +40,9 @@ noBoat(context){
   );
 }
 
-siBoat(){
-
+siBoat(context){
+  return Navigator.push(
+    context,
+    MaterialPageRoute(builder: (context) => pageFisheremanBoat()),
+  );
 }

@@ -5,6 +5,7 @@ import 'package:pescadores/atomicDesign/atoms/atomLogoRedAzul.dart';
 import 'package:pescadores/atomicDesign/atoms/atomSubtitle.dart';
 import 'package:pescadores/atomicDesign/atoms/atomTitle.dart';
 import 'package:pescadores/atomicDesign/molecules/moleculefishingZone.dart';
+import 'package:pescadores/atomicDesign/pages/pageFishingZone.dart';
 
 
 class organismsFishingZone extends StatefulWidget {
@@ -53,10 +54,22 @@ sendFunctions(context){
           descripcion: '¿Deseas agregar otro sitio?',
           imagen: 'assets/infoAlert.png',
           textoboton1: 'Si',
-          funcion1: noFunction,
+          funcion1: functionSiOtherSite,
           textoboton2: 'No',
-          funcion2: alertmodalclose,
+          funcion2: functionNoOtherSite,
         ); // Usar el widget de la modal personalizada
       },
     );
+}
+
+
+functionSiOtherSite(context){
+  return  Navigator.push(
+    context,
+    MaterialPageRoute(builder: (context) => pageFishingArts()),
+  );
+}
+
+functionNoOtherSite(context){
+  
 }
