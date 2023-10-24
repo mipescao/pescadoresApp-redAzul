@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:pescadores/atomicDesign/atoms/atomButtonSend.dart';
 import 'package:pescadores/atomicDesign/atoms/atomLogoRedAzul.dart';
+import 'package:pescadores/atomicDesign/molecules/moleculeBoatEngine.dart';
 import 'package:pescadores/atomicDesign/molecules/moleculeRegisterBoat.dart';
 
 class organismsFishermanBoat extends StatefulWidget {
@@ -25,6 +26,7 @@ class _organismsFishermanBoatState extends State<organismsFishermanBoat> {
             SizedBox(height: 30.0),
             moleculeBoatMatriculed(),
             SizedBox(height: 30.0),
+            moleculeBoatEngine(),
             atomButtonForm(text: 'Enviar', function: saveDatesBoat),
             SizedBox(height: 30.0),
             

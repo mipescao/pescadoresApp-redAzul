@@ -28,14 +28,19 @@ class _moleculeRegisterBoatState extends State<moleculeRegisterBoat> {
     return Column(
       children: [
         atomTitle(title: 'Registra tu embarcación'),
+        
         SizedBox(height: 30.0),
+        
         atomInputForm(
             controllerInput: myControllerNameBoat,
             textInput: 'Nombre de la embarcación',
             icon: Icon(Icons.password, color: Colors.transparent)),
         SizedBox(height: 30.0),
+
         atomSelectImageBoat(), // select que aun no funciona
+
         SizedBox(height: 30.0),
+
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -239,7 +244,7 @@ class _moleculeBoatMatriculedState extends State<moleculeBoatMatriculed> {
             decoration: styleSections.containerBorderBlue,
             constraints: BoxConstraints(
                 maxWidth: MediaQuery.of(context).size.width * 0.90),
-            child: matriculeSI ? siMatricula() : noMatricula(),
+            child: matriculeSI ? siMatricula() : nohasMatricule(),
           )
         ],
       ),
@@ -249,16 +254,132 @@ class _moleculeBoatMatriculedState extends State<moleculeBoatMatriculed> {
 
 final myControllerMatricule = TextEditingController();
 siMatricula() {
-  return Container(
-    child: atomInputForm80(
-        controllerInput: myControllerMatricule,
-        textInput: 'Matricula',
-        icon: Icon(Icons.password, color: Colors.transparent)),
+  return Padding(
+    padding: EdgeInsets.only(
+    top: 15.0, // Relleno de 10 unidades en la parte superior
+    bottom: 15.0, // Relleno de 20 unidades en la parte inferior
+    left: 15.0, // Relleno de 15 unidades en el lado izquierdo
+    right: 15.0, // Relleno de 25 unidades en el lado derecho
+  ),
+    child: Container(
+      
+      child: atomInputForm80(
+          controllerInput: myControllerMatricule,
+          textInput: 'Matrícula',
+          icon: Icon(Icons.password, color: Colors.transparent)),
+    ),
   );
 }
 
-noMatricula() {
-  return Container(
-    child: Text("sdfffsfd"),
-  );
+bool valueSiRegistered = true;
+bool valueNoRegistered = false;
+
+class nohasMatricule extends StatefulWidget {
+  const nohasMatricule({super.key});
+
+  @override
+  State<nohasMatricule> createState() => _nohasMatriculeState();
+}
+
+class _nohasMatriculeState extends State<nohasMatricule> {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+            width: 400.0,
+            constraints: BoxConstraints(
+                maxWidth: MediaQuery.of(context).size.width * 0.90),
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Text('¿Deseas registrarla?',
+                        style: styleTextSections.textBlue,),
+                    SizedBox(width: 10.0),  
+                    Row(children: [
+                      Text('Si', style: styleTextSections.textBlue),
+                      SizedBox(width: 10.0),
+                      Container(
+                        // Personaliza el Checkbox usando un Container
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(5.0),
+                            color: valueSiRegistered
+                                ? Color(0xff0095cd)
+                                : Color(0xffffffff),
+                            border: Border.all(color: Color(0xff707070))),
+                        child: Padding(
+                          padding: const EdgeInsets.all(4.0),
+                          child: InkWell(
+                            onTap: () {
+                              // Cambia el estado del Checkbox al hacer clic
+                              setState(() {
+                                if (valueSiRegistered == true) {
+                                  valueNoRegistered = true;
+                                  valueSiRegistered = false;
+                                } else {
+                                  valueNoRegistered = false;
+                                  valueSiRegistered = true;
+                                }
+                              });
+                            },
+                            child: valueSiRegistered
+                                ? Icon(
+                                    Icons.check,
+                                    size: 24.0,
+                                    color: Colors.white,
+                                  )
+                                : Icon(
+                                    Icons.check_box_outline_blank,
+                                    size: 24.0,
+                                    color: Colors.transparent,
+                                  ),
+                          ),
+                        ),
+                      ),
+                    ]),
+                    Row(children: [
+                      Text('No', style: styleTextSections.textBlue),
+                      SizedBox(width: 10.0),
+                      Container(
+                        // Personaliza el Checkbox usando un Container
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(5.0),
+                            color: valueNoRegistered
+                                ? Color(0xff0095cd)
+                                : Color(0xffffffff),
+                            border: Border.all(color: Color(0xff707070))),
+                        child: Padding(
+                          padding: const EdgeInsets.all(4.0),
+                          child: InkWell(
+                            onTap: () {
+                              // Cambia el estado del Checkbox al hacer clic
+                              setState(() {
+                                if (valueNoRegistered == true) {
+                                  valueSiRegistered = true;
+                                  valueNoRegistered = false;
+                                } else {
+                                  valueSiRegistered = false;
+                                  valueNoRegistered = true;
+                                }
+                              });
+                            },
+                            child: valueNoRegistered
+                                ? Icon(
+                                    Icons.check,
+                                    size: 24.0,
+                                    color: Colors.white,
+                                  )
+                                : Icon(
+                                    Icons.check_box_outline_blank,
+                                    size: 24.0,
+                                    color: Colors.transparent,
+                                  ),
+                          ),
+                        ),
+                      ),
+                    ])
+                  ]),
+            ),
+          );
+  }
 }

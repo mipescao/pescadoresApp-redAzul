@@ -154,6 +154,7 @@ class _atomInputFormPasswordState extends State<atomInputFormPassword> {
   }
 }
 
+
 class atomInputForm80 extends StatefulWidget {
   final TextEditingController controllerInput;
   final String textInput;

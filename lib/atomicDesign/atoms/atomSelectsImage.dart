@@ -34,82 +34,82 @@ class _atomSelectImageBoatState extends State<atomSelectImageBoat> {
   String _selectedItem = 'Select una embarcación';
   @override
   Widget build(BuildContext context) {
-    return Container(
-      
-      // height: 40.0,
-      width: 400.0,
-      padding: EdgeInsets.zero,
-      constraints:
-          BoxConstraints(maxWidth: MediaQuery.of(context).size.width * 0.90),
-      decoration: BoxDecoration(
-        color: Color(0xffffffff),
-        borderRadius:
-            BorderRadius.circular(20.0), // Agrega el border-radius deseado
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withOpacity(0.2),
-            spreadRadius: 2,
-            blurRadius: 5,
-            offset: Offset(0, 3),
-          ),
-        ],
+    return  Container(
+  width: 400.0,
+  padding: EdgeInsets.zero,
+  constraints: BoxConstraints(maxWidth: MediaQuery.of(context).size.width * 0.90),
+  decoration: BoxDecoration(
+    color: Color(0xffffffff),
+    borderRadius: BorderRadius.circular(20.0),
+    boxShadow: [
+      BoxShadow(
+        color: Colors.black.withOpacity(0.2),
+        spreadRadius: 2,
+        blurRadius: 5,
+        offset: Offset(0, 3),
       ),
-      child: Column(
-        children: <Widget>[
-          DropdownButton<DropdownItem>(
-          items: items.map((DropdownItem item) {
-            return DropdownMenuItem<DropdownItem>(
-              value: item ,
+    ],
+  ),
+  child: Column(
+    children: <Widget>[
+      DropdownButton<DropdownItem>(
+        items: items.map((DropdownItem item) {
+          return DropdownMenuItem<DropdownItem>(
+            value: item,
+            child: Container(
+              padding: EdgeInsets.zero, // Elimina cualquier relleno interno adicional
               child: Container(
-
-                width: 400.0,
-                height: 10000.0,
-                constraints: BoxConstraints(maxWidth: MediaQuery.of(context).size.width * 0.80),
-                // decoration: BoxDecoration(
-                //   border: Border(
-                //     bottom: BorderSide(
-                //       color: Colors.black,
-                //       width: 2.0,                ),
-                //   ),
-                // ),
-
+                height: 100.0, // Ajusta la altura según sea necesario
                 child: Row(
-                  mainAxisSize: MainAxisSize.max, // Asegura que el contenido ocupe todo el ancho
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween, //
+                  mainAxisSize: MainAxisSize.min,
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     Container(
-                      width: MediaQuery.of(context).size.width * 0.4,
-                      height: 4000000.0,
-                      // height:1000,
+                      padding: EdgeInsets.zero, // Elimina cualquier relleno interno adicional
+                      width: 100.0, // Ajusta el ancho según sea necesario
                       child: Image.asset(
                         item.imagePath,
-                        fit: BoxFit.fill,
+                        fit: BoxFit.cover,
                       ),
                     ),
-                    SizedBox(width: MediaQuery.of(context).size.width * 0.02),
+                    SizedBox(width: 8.0), // Ajusta el espacio entre los elementos
                     Container(
-                       width: MediaQuery.of(context).size.width * 0.38,
-                      child: Center(child: Text(item.text, style: TextStyle(color: colores.blue1, fontSize: 20.0), textAlign: TextAlign.center,))
+                      padding: EdgeInsets.zero, // Elimina cualquier relleno interno adicional
+                      width: 100.0, // Ajusta el ancho según sea necesario
+                      child: Center(
+                        child: Text(
+                          item.text,
+                          style: TextStyle(color: Colors.blue, fontSize: 20.0),
+                          textAlign: TextAlign.center,
+                          overflow: TextOverflow.clip,
+                        ),
+                      ),
                     ),
-                    
                   ],
-                  
                 ),
               ),
-            );
-          }).toList(),
-          onChanged: (DropdownItem? newValue) {
-            if (newValue != null) {
-              setState(() {
-                _selectedItem = newValue.text;
-              });
-              print('Selected item: ${newValue.text}');
-            }
-          },  
-          hint: Text(_selectedItem),
+            ),
+          );
+        }).toList(),
+        onChanged: (DropdownItem? newValue) {
+          if (newValue != null) {
+            setState(() {
+              _selectedItem = newValue.text;
+            });
+            print('Selected item: ${newValue.text}');
+          }
+        },
+        hint: Center(
+          child: Text(
+            _selectedItem,
+            style: TextStyle(color: Colors.blue, fontSize: 18.0),
+            textAlign: TextAlign.center,
           ),
-        ],
+        ),
       ),
-    );
+    ],
+  ),
+);
   }
 }
