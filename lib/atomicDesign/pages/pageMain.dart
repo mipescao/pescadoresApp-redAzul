@@ -11,7 +11,7 @@ class pageMainPage extends StatelessWidget {
       backgroundColor: Colors.white,
       body: SafeArea(
         child: SingleChildScrollView(
-            child: Expanded(
+            child: Container(
           child: Center(
             child: Container(
               child: Column(

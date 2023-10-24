@@ -39,12 +39,13 @@ class _moleculeSellProductsmiPescaoState
                             topRight: Radius.circular(14.0)),
                         color: Color(0xff0095CD),
                       ),
-                      
                       child: Column(
                         children: [
                           SizedBox(height: 15.0),
                           Text(
-                              '¿Quieres vender tus productos por medio de miPescao?', style: styleFinancialActivity.textWhite, textAlign: TextAlign.center),
+                              '¿Quieres vender tus productos por medio de miPescao?',
+                              style: styleTextSections.textWhite,
+                              textAlign: TextAlign.center),
                           SizedBox(height: 15.0),
                           Center(
                             child: Row(
@@ -52,32 +53,33 @@ class _moleculeSellProductsmiPescaoState
                               children: [
                                 Row(
                                   children: [
-                                    Text('Si', style: styleFinancialActivity.textWhite),
+                                    Text('Si',
+                                        style: styleTextSections.textWhite),
                                     SizedBox(width: 10.0),
                                     Container(
                                       // Personaliza el Checkbox usando un Container
                                       decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(5.0),
-                                        color: valueSiSellProducts ? Color(0xffFBB03B) : Color(0xff0095CD),
-                                        border: Border.all(
-                                          color: Color(0xffffffff)
-                                        )
-                                      ),
+                                          borderRadius:
+                                              BorderRadius.circular(5.0),
+                                          color: valueSiSellProducts
+                                              ? Color(0xffFBB03B)
+                                              : Color(0xff0095CD),
+                                          border: Border.all(
+                                              color: Color(0xffffffff))),
                                       child: Padding(
                                         padding: const EdgeInsets.all(4.0),
                                         child: InkWell(
                                           onTap: () {
                                             // Cambia el estado del Checkbox al hacer clic
                                             setState(() {
-                                            if (valueSiSellProducts == true) {
-                                              valueNoSellProducts = true;
-                                              valueSiSellProducts = false;
-                                            } else{
-                                              valueNoSellProducts = false;
-                                              valueSiSellProducts = true;
-                                            }
+                                              if (valueSiSellProducts == true) {
+                                                valueNoSellProducts = true;
+                                                valueSiSellProducts = false;
+                                              } else {
+                                                valueNoSellProducts = false;
+                                                valueSiSellProducts = true;
+                                              }
                                             });
-
                                           },
                                           child: valueSiSellProducts
                                               ? Icon(
@@ -95,20 +97,24 @@ class _moleculeSellProductsmiPescaoState
                                     ),
                                   ],
                                 ),
-                                SizedBox(width: 50.0,),
+                                SizedBox(
+                                  width: 50.0,
+                                ),
                                 Row(
                                   children: [
-                                    Text('No', style:  styleFinancialActivity.textWhite),
+                                    Text('No',
+                                        style: styleTextSections.textWhite),
                                     SizedBox(width: 10.0),
                                     Container(
                                       // Personaliza el Checkbox usando un Container
                                       decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(5.0),
-                                        color: valueNoSellProducts ? Color(0xffFBB03B) : Color(0xff0095CD),
-                                        border: Border.all(
-                                          color: Color(0xffffffff)
-                                        )
-                                      ),
+                                          borderRadius:
+                                              BorderRadius.circular(5.0),
+                                          color: valueNoSellProducts
+                                              ? Color(0xffFBB03B)
+                                              : Color(0xff0095CD),
+                                          border: Border.all(
+                                              color: Color(0xffffffff))),
                                       child: Padding(
                                         padding: const EdgeInsets.all(4.0),
                                         child: InkWell(
@@ -118,12 +124,11 @@ class _moleculeSellProductsmiPescaoState
                                               if (valueNoSellProducts == true) {
                                                 valueSiSellProducts = true;
                                                 valueNoSellProducts = false;
-                                              } else{
+                                              } else {
                                                 valueSiSellProducts = false;
                                                 valueNoSellProducts = true;
                                               }
                                             });
-                                            
                                           },
                                           child: valueNoSellProducts
                                               ? Icon(
@@ -147,7 +152,6 @@ class _moleculeSellProductsmiPescaoState
                           SizedBox(height: 15.0)
                         ],
                       ),
-                    
                     ),
                   ),
                   Center(
@@ -198,35 +202,35 @@ class _noSellProductsState extends State<noSellProducts> {
   @override
   Widget build(BuildContext context) {
     return Container(
-    child: Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          SizedBox(height: 15.0),
-          Text('¿Porqué no venderías por miPescao?', style:  styleFinancialActivity.textBlue, textAlign: TextAlign.center),
-          SizedBox(height: 15.0),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-
-              SelectionWidget(
-                items: optionsNoSell,
-                selectedItem: optionsNoSellSelected,
-                onChanged: (selectedItem) {
-                  // Manejar la opción seleccionada aquí
-                  setState(() {
-                    optionsNoSellSelected = selectedItem!;
-                  });
-                  // print('Opción seleccionada: $selectedItem');
-                },
-              ),
-            ],
-          ),
-          SizedBox(height: 15.0)
-        ],
+      child: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            SizedBox(height: 15.0),
+            Text('¿Porqué no venderías por miPescao?',
+                style: styleTextSections.textBlue, textAlign: TextAlign.center),
+            SizedBox(height: 15.0),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                SelectionWidget(
+                  items: optionsNoSell,
+                  selectedItem: optionsNoSellSelected,
+                  onChanged: (selectedItem) {
+                    // Manejar la opción seleccionada aquí
+                    setState(() {
+                      optionsNoSellSelected = selectedItem!;
+                    });
+                    // print('Opción seleccionada: $selectedItem');
+                  },
+                ),
+              ],
+            ),
+            SizedBox(height: 15.0)
+          ],
+        ),
       ),
-    ),
-  );
+    );
   }
 }
 
@@ -241,116 +245,116 @@ class _siSellProductosState extends State<siSellProductos> {
   @override
   Widget build(BuildContext context) {
     return Container(
-    child: Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          SizedBox(height: 15.0),
-          Text('¿Necesitas capacitación?', style:  styleFinancialActivity.textBlue, textAlign: TextAlign.center),
-          SizedBox(height: 15.0),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-
-              Row(
-                children: [
-
-                  Text('Si', style:  styleFinancialActivity.textBlue,),
-                  SizedBox(width: 10.0),
-                  Container(
-                    // Personaliza el Checkbox usando un Container
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(5.0),
-                      color: valueSiNeedsTraining ? Color(0xff0095CD) : Color(0xffffffff),
-                      border: Border.all(
-                        color: Color(0xff707070)
-                      )
+      child: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            SizedBox(height: 15.0),
+            Text('¿Necesitas capacitación?',
+                style: styleTextSections.textBlue, textAlign: TextAlign.center),
+            SizedBox(height: 15.0),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Row(
+                  children: [
+                    Text(
+                      'Si',
+                      style: styleTextSections.textBlue,
                     ),
-                    child: Padding(
-                      padding: const EdgeInsets.all(4.0),
-                      child: InkWell(
-                        onTap: () {
-                          // Cambia el estado del Checkbox al hacer clic
-                          setState(() {
-                          if (valueSiNeedsTraining == true) {
-                            valueNoNeedsTraining = true;
-                            valueSiNeedsTraining = false;
-                          } else{
-                            valueNoNeedsTraining = false;
-                            valueSiNeedsTraining = true;
-                          }                            
-
-                          });
-
-                        },
-                        child: valueSiNeedsTraining
-                            ? Icon(
-                                Icons.check,
-                                size: 24.0,
-                                color: Colors.white,
-                              )
-                            : Icon(
-                                Icons.check_box_outline_blank,
-                                size: 24.0,
-                                color: Colors.transparent,
-                              ),
+                    SizedBox(width: 10.0),
+                    Container(
+                      // Personaliza el Checkbox usando un Container
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(5.0),
+                          color: valueSiNeedsTraining
+                              ? Color(0xff0095CD)
+                              : Color(0xffffffff),
+                          border: Border.all(color: Color(0xff707070))),
+                      child: Padding(
+                        padding: const EdgeInsets.all(4.0),
+                        child: InkWell(
+                          onTap: () {
+                            // Cambia el estado del Checkbox al hacer clic
+                            setState(() {
+                              if (valueSiNeedsTraining == true) {
+                                valueNoNeedsTraining = true;
+                                valueSiNeedsTraining = false;
+                              } else {
+                                valueNoNeedsTraining = false;
+                                valueSiNeedsTraining = true;
+                              }
+                            });
+                          },
+                          child: valueSiNeedsTraining
+                              ? Icon(
+                                  Icons.check,
+                                  size: 24.0,
+                                  color: Colors.white,
+                                )
+                              : Icon(
+                                  Icons.check_box_outline_blank,
+                                  size: 24.0,
+                                  color: Colors.transparent,
+                                ),
+                        ),
                       ),
                     ),
-                  ),
-                ],
-              ),
-              SizedBox(width: 50.0,),
-              Row(
-                children: [
-                  Text('No', style:  styleFinancialActivity.textBlue),
-                  SizedBox(width: 10.0),
-                  Container(
-                    // Personaliza el Checkbox usando un Container
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(5.0),
-                      color: valueNoNeedsTraining ? Color(0xff0095CD) : Color(0xffffffff),
-                      border: Border.all(
-                        color: Color(0xff707070)
-                      )
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.all(4.0),
-                      child: InkWell(
-                        onTap: () {
-                          // Cambia el estado del Checkbox al hacer clic
+                  ],
+                ),
+                SizedBox(
+                  width: 50.0,
+                ),
+                Row(
+                  children: [
+                    Text('No', style: styleTextSections.textBlue),
+                    SizedBox(width: 10.0),
+                    Container(
+                      // Personaliza el Checkbox usando un Container
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(5.0),
+                          color: valueNoNeedsTraining
+                              ? Color(0xff0095CD)
+                              : Color(0xffffffff),
+                          border: Border.all(color: Color(0xff707070))),
+                      child: Padding(
+                        padding: const EdgeInsets.all(4.0),
+                        child: InkWell(
+                          onTap: () {
+                            // Cambia el estado del Checkbox al hacer clic
                             setState(() {
                               if (valueNoNeedsTraining == true) {
-                              valueSiNeedsTraining = true;
-                              valueNoNeedsTraining = false;
-                              } else{
+                                valueSiNeedsTraining = true;
+                                valueNoNeedsTraining = false;
+                              } else {
                                 valueSiNeedsTraining = false;
                                 valueNoNeedsTraining = true;
-                              }  
+                              }
                             });
-                        },
-                        child: valueNoNeedsTraining
-                            ? Icon(
-                                Icons.check,
-                                size: 24.0,
-                                color: Colors.white,
-                              )
-                            : Icon(
-                                Icons.check_box_outline_blank,
-                                size: 24.0,
-                                color: Colors.transparent,
-                              ),
+                          },
+                          child: valueNoNeedsTraining
+                              ? Icon(
+                                  Icons.check,
+                                  size: 24.0,
+                                  color: Colors.white,
+                                )
+                              : Icon(
+                                  Icons.check_box_outline_blank,
+                                  size: 24.0,
+                                  color: Colors.transparent,
+                                ),
+                        ),
                       ),
                     ),
-                  ),
-                ],
-              ),
-            ],
-          ),
-          SizedBox(height: 15.0)
-        ],
+                  ],
+                ),
+              ],
+            ),
+            SizedBox(height: 15.0)
+          ],
+        ),
       ),
-    ),
-  );
+    );
   }
 }
 
