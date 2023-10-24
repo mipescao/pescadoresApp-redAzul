@@ -71,6 +71,7 @@ flutter:
   assets:
     - assets/
     - assets/images/
+    - assets/archivos/embarcaciones/
   #   - images/a_dot_ham.jpeg
 
   fonts:

@@ -12,6 +12,7 @@ class _pageFisheremanBoatState extends State<pageFisheremanBoat> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(

@@ -31,7 +31,7 @@ class _moleculeRegisterBoatState extends State<moleculeRegisterBoat> {
         SizedBox(height: 30.0),
         atomInputForm(controllerInput: myControllerNameBoat, textInput: 'Nombre de la embarcación', icon: Icon(Icons.password, color: Colors.transparent)),
         SizedBox(height: 30.0),
-        CustomDropdown(), // select que aun no funciona
+        atomSelectImageBoat(), // select que aun no funciona
         SizedBox(height: 30.0),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
