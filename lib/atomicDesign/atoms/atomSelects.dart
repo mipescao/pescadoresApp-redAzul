@@ -40,25 +40,27 @@ class atomSelects<String> extends StatelessWidget {
                 onChanged: onChanged,
                 items: items.map<DropdownMenuItem<String>>((String value) {
                   return DropdownMenuItem<String>(
-
                     value: value,
                     child: Container(
                       width: MediaQuery.of(context).size.width * 0.80,
-                      child: Text(value.toString(),
-                      textAlign: TextAlign.center,
-                            style:
-                                TextStyle(color: Color(0xff0095CD), fontSize: 18.0),
-                            overflow: TextOverflow
-                                .ellipsis, // Corta el texto si es demasiado largo
-                            maxLines: 1,),
+                      child: Text(
+                        value.toString(),
+                        textAlign: TextAlign.center,
+                        style:
+                            TextStyle(color: Color(0xff0095CD), fontSize: 18.0),
+                        overflow: TextOverflow
+                            .ellipsis, // Corta el texto si es demasiado largo
+                        maxLines: 1,
+                      ),
                     ),
                   );
                 }).toList(),
                 icon: Icon(
-                      Icons.arrow_drop_down_rounded, // Icono de flecha predeterminado
-                      color:
-                          Color(0xff0071BC), // Cambiar el color de la flecha a azul
-                    ),
+                  Icons
+                      .arrow_drop_down_rounded, // Icono de flecha predeterminado
+                  color:
+                      Color(0xff0071BC), // Cambiar el color de la flecha a azul
+                ),
               ),
             ),
           ),
@@ -67,3 +69,5 @@ class atomSelects<String> extends StatelessWidget {
     );
   }
 }
+
+// -------------------------------------------------------------------

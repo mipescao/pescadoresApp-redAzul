@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pescadores/atomicDesign/atoms/atomSelects.dart';
 import 'package:pescadores/styles/styles.dart';
 
 // Esta matriculado?
@@ -143,15 +144,16 @@ class _siStorageState extends State<siStorage> {
     return Container(
       child: Row(
         children: [
-
           Padding(
             padding: const EdgeInsets.all(10.0),
             child: Container(
-              width: MediaQuery.of(context).size.width * 0.50,
-              child: Text('¿Qué capacidad de almacenamiento tiene?',
-                  style: TextStyle( fontSize: 20.0, color: colores.blue1, fontFamily: "NunitoBold",)
-              )
-            ),
+                width: MediaQuery.of(context).size.width * 0.50,
+                child: Text('¿Qué capacidad de almacenamiento tiene?',
+                    style: TextStyle(
+                      fontSize: 20.0,
+                      color: colores.blue1,
+                      fontFamily: "NunitoBold",
+                    ))),
           ),
           Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -215,7 +217,10 @@ class _siStorageState extends State<siStorage> {
                 ),
               ),
               SizedBox(height: 5.0),
-              Text("KILOS", style: styleTextSections.textBlue,)
+              Text(
+                "KILOS",
+                style: styleTextSections.textBlue,
+              )
             ],
           )
         ],
@@ -223,7 +228,6 @@ class _siStorageState extends State<siStorage> {
     );
   }
 }
-
 
 class noStorage extends StatefulWidget {
   const noStorage({super.key});

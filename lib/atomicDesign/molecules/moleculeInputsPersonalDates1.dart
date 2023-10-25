@@ -69,7 +69,7 @@ class _moleculeInputsPersonalDates1State
             },
           ),
           SizedBox(height: 30.0),
-          atomInputForm(
+          atomInputNumberForm(
               controllerInput: myControllerNumberDocument,
               textInput: 'Número de documento',
               icon: Icon(Icons.password, color: Colors.transparent)),
@@ -193,10 +193,9 @@ savePersonalDates(context) {
   print(myControllerLastName.text);
   print(myControllerNickName.text);
   print(myControllerNumberDocument.text);
-  if(isCheckedSi == true){
-      print(myControllerCarnetAunap.text);
+  if (isCheckedSi == true) {
+    print(myControllerCarnetAunap.text);
   }
-  
 
   return Navigator.push(
     context,

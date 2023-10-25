@@ -72,18 +72,17 @@ class _moleculeInputsInfoContactState extends State<moleculeInputsInfoContact> {
             },
           ),
           SizedBox(height: 40.0),
-          
           atomInputForm(
               controllerInput: myControllerDirection,
               textInput: 'Dirección',
               icon: Icon(Icons.password, color: Colors.transparent)),
           SizedBox(height: 40.0),
-          atomInputForm(
+          atomInputNumberForm(
               controllerInput: myControllerPhone,
               textInput: 'Teléfono',
               icon: Icon(Icons.password, color: Colors.transparent)),
           SizedBox(height: 40.0),
-          atomInputForm(
+          atomInputNumberForm(
               controllerInput: myControllerEmergencyPhone,
               textInput: 'Teléfono para emergencias',
               icon: Icon(Icons.password, color: Colors.transparent)),
@@ -98,7 +97,6 @@ class _moleculeInputsInfoContactState extends State<moleculeInputsInfoContact> {
 }
 
 sendInfoContact(context) {
-  
   print(myControllerDirection.text);
   print(myControllerPhone.text);
   print(myControllerEmergencyPhone.text);
