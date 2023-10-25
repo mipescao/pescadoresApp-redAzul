@@ -136,6 +136,7 @@ final List<String> optionsEngine = [
 
 int valueHp = 0;
 
+
 class siEngineMolecule extends StatefulWidget {
   const siEngineMolecule({super.key});
 
@@ -164,16 +165,20 @@ class _siEngineMoleculeState extends State<siEngineMolecule> {
             ),
             SizedBox(height: 20.0,),
             Row(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(
-                'Potencia:',
-                style: TextStyle(
-                    color: Color(0xff0095CD),
-                    fontSize: 22.0,
-                    fontFamily: "nunitoRegular"),
+              Container(
+                width: MediaQuery.of(context).size.width * 0.25,
+                child: Text(
+                  'Potencia:',
+                  style: TextStyle(
+                      color: Color(0xff0095CD),
+                      fontSize: 22.0,
+                      fontFamily: "nunitoRegular"),
+                      textAlign: TextAlign.center,
+                ),
               ),
-              SizedBox(width: 20.0),
+              // SizedBox(width: 20.0),
               Container(
                 decoration: BoxDecoration(
                   color: Color(0xffffffff),
@@ -232,13 +237,17 @@ class _siEngineMoleculeState extends State<siEngineMolecule> {
                   ],
                 ),
               ),
-              SizedBox(width: 20.0),
-              Text(
-                'HP',
-                style: TextStyle(
-                    color: Color(0xff0095CD),
-                    fontSize: 22.0,
-                    fontFamily: "nunitoRegular"),
+              // SizedBox(width: 20.0),
+              Container(
+                width: MediaQuery.of(context).size.width * 0.20,
+                child: Text(
+                  'HP',
+                  style: TextStyle(
+                      color: Color(0xff0095CD),
+                      fontSize: 22.0,
+                      fontFamily: "nunitoRegular"),
+                  textAlign: TextAlign.center,
+                ),
               )
             ],
           )
@@ -250,7 +259,10 @@ class _siEngineMoleculeState extends State<siEngineMolecule> {
   }
 }
 
-
+bool velaSelected = false;
+bool remoSelected = false;
+bool canaleteSelected = false;
+bool palancaSelected = false;
 
 class noEngineMolecule extends StatefulWidget {
   const noEngineMolecule({super.key});
@@ -267,103 +279,194 @@ class _noEngineMoleculeState extends State<noEngineMolecule> {
         children: [
           SizedBox(height: 15.0),
           Text('¿Qué usa?',
-                style: styleTextSections.textBlue, textAlign: TextAlign.center),
+                style: styleTextSections.textBlueBold, textAlign: TextAlign.center),
           SizedBox(height: 15.0),
           
           Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              Row(
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Container(
-                    // Personaliza el Checkbox usando un Container
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(5.0),
-                        color: engineSI
-                            ? Color(0xff0095cd)
-                            : Color(0xffffffff),
-                        border: Border.all(color: Color(0xff707070))),
-                    child: Padding(
-                      padding: const EdgeInsets.all(4.0),
-                      child: InkWell(
-                        onTap: () {
-                          // Cambia el estado del Checkbox al hacer clic
-                          setState(() {
-                            if (engineSI == true) {
-                              engineNo = true;
-                              engineSI = false;
-                            } else {
-                              engineNo = false;
-                              engineSI = true;
-                            }
-                          });
-                        },
-                        child: engineSI
-                            ? Icon(
-                                Icons.check,
-                                size: 24.0,
-                                color: Colors.white,
-                              )
-                            : Icon(
-                                Icons.check_box_outline_blank,
-                                size: 24.0,
-                                color: Colors.transparent,
-                              ),
+                  Row(
+                    children: [
+                      Container(
+                      // Personaliza el Checkbox usando un Container
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(5.0),
+                            color: velaSelected
+                                ? Color(0xff0095cd)
+                                : Color(0xffffffff),
+                            border: Border.all(color: Color(0xff707070))),
+                        child: Padding(
+                          padding: const EdgeInsets.all(4.0),
+                          child: InkWell(
+                            onTap: () {
+                              // Cambia el estado del Checkbox al hacer clic
+                              setState(() {
+                                if (velaSelected == true) {
+                                  velaSelected = false;
+                              } else {
+                                velaSelected = true;
+                              }
+                            });
+                          },
+                          child: velaSelected
+                              ? Icon(
+                                  Icons.check,
+                                  size: 24.0,
+                                  color: Colors.white,
+                                )
+                              : Icon(
+                                  Icons.check_box_outline_blank,
+                                  size: 24.0,
+                                  color: Colors.transparent,
+                                ),
+                          ),
+                        ),
                       ),
-                    ),
+                      SizedBox(width: 10.0),
+                      Text('Vela', style: styleTextSections.textBlue),
+                    ],
                   ),
-                  SizedBox(width: 10.0),
-                  Text('Vela', style: styleTextSections.textBlue),
+                  SizedBox(height: 15.0),
+                  Row(
+                    children: [
+                      Container(
+                        // Personaliza el Checkbox usando un Container
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(5.0),
+                            color: canaleteSelected
+                                ? Color(0xff0095cd)
+                                : Color(0xffffffff),
+                            border: Border.all(color: Color(0xff707070))),
+                        child: Padding(
+                          padding: const EdgeInsets.all(4.0),
+                          child: InkWell(
+                            onTap: () {
+                              // Cambia el estado del Checkbox al hacer clic
+                              setState(() {
+                                if (canaleteSelected == true) {
+                                  canaleteSelected = false;
+                                } else {
+                                  canaleteSelected = true;
+                                }
+                              });
+                            },
+                            child: canaleteSelected
+                                ? Icon(
+                                    Icons.check,
+                                    size: 24.0,
+                                    color: Colors.white,
+                                  )
+                                : Icon(
+                                    Icons.check_box_outline_blank,
+                                    size: 24.0,
+                                    color: Colors.transparent,
+                                  ),
+                          ),
+                        ),
+                      ),
+                      SizedBox(width: 10.0),
+                      Text('Canalete', style: styleTextSections.textBlue),
+                    ],
+                  ),
+                
                 ],
               ),
 
-              Row(
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Container(
-                    // Personaliza el Checkbox usando un Container
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(5.0),
-                        color: engineSI
-                            ? Color(0xff0095cd)
-                            : Color(0xffffffff),
-                        border: Border.all(color: Color(0xff707070))),
-                    child: Padding(
-                      padding: const EdgeInsets.all(4.0),
-                      child: InkWell(
-                        onTap: () {
-                          // Cambia el estado del Checkbox al hacer clic
-                          setState(() {
-                            if (engineSI == true) {
-                              engineNo = true;
-                              engineSI = false;
-                            } else {
-                              engineNo = false;
-                              engineSI = true;
-                            }
-                          });
-                        },
-                        child: engineSI
-                            ? Icon(
-                                Icons.check,
-                                size: 24.0,
-                                color: Colors.white,
-                              )
-                            : Icon(
-                                Icons.check_box_outline_blank,
-                                size: 24.0,
-                                color: Colors.transparent,
-                              ),
+                  Row(
+                    children: [
+                      Container(
+                        // Personaliza el Checkbox usando un Container
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(5.0),
+                            color: remoSelected
+                                ? Color(0xff0095cd)
+                                : Color(0xffffffff),
+                            border: Border.all(color: Color(0xff707070))),
+                        child: Padding(
+                          padding: const EdgeInsets.all(4.0),
+                          child: InkWell(
+                            onTap: () {
+                              // Cambia el estado del Checkbox al hacer clic
+                              setState(() {
+                                if (remoSelected == true) {
+                                  remoSelected = false;
+                                } else {
+                                  remoSelected = true;
+                                }
+                              });
+                            },
+                            child: remoSelected
+                                ? Icon(
+                                    Icons.check,
+                                    size: 24.0,
+                                    color: Colors.white,
+                                  )
+                                : Icon(
+                                    Icons.check_box_outline_blank,
+                                    size: 24.0,
+                                    color: Colors.transparent,
+                                  ),
+                          ),
+                        ),
                       ),
-                    ),
+                      SizedBox(width: 10.0),
+                      Text('Remo', style: styleTextSections.textBlue),
+                    ],
                   ),
-                  SizedBox(width: 10.0),
-                  Text('Vela', style: styleTextSections.textBlue),
+                  SizedBox(height: 15.0),
+                  Row(
+                    children: [
+                      Container(
+                        // Personaliza el Checkbox usando un Container
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(5.0),
+                            color: palancaSelected
+                                ? Color(0xff0095cd)
+                                : Color(0xffffffff),
+                            border: Border.all(color: Color(0xff707070))),
+                        child: Padding(
+                          padding: const EdgeInsets.all(4.0),
+                          child: InkWell(
+                            onTap: () {
+                              // Cambia el estado del Checkbox al hacer clic
+                              setState(() {
+                                if (palancaSelected == true) {
+                                  palancaSelected = false;
+                                } else {
+                                  palancaSelected = true;
+                                }
+                              });
+                            },
+                            child: palancaSelected
+                                ? Icon(
+                                    Icons.check,
+                                    size: 24.0,
+                                    color: Colors.white,
+                                  )
+                                : Icon(
+                                    Icons.check_box_outline_blank,
+                                    size: 24.0,
+                                    color: Colors.transparent,
+                                  ),
+                          ),
+                        ),
+                      ),
+                      SizedBox(width: 10.0),
+                      Text('Palanca', style: styleTextSections.textBlue),
+                    ],
+                  ),
+                  
                 ],
               ),
-              
             ],
           ),
-          
-
+          SizedBox(height: 15.0),
         ]
       ),
     );

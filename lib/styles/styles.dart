@@ -16,9 +16,21 @@ class styleTextSections {
     color: colores.blue1,
   );
 
+    static const TextStyle textBlueBold = TextStyle(
+    fontSize: 22.0,
+    color: colores.blue1,
+    fontFamily: "NunitoBold",
+  );
+
   static const TextStyle textWhite = TextStyle(
     fontSize: 22.0,
     color: colores.white,
+  );
+
+  static const TextStyle textWhiteBold = TextStyle(
+    fontSize: 22.0,
+    color: colores.white,
+    fontFamily: "NunitoBold"
   );
 
   static const TextStyle descriptionBlog = TextStyle(
