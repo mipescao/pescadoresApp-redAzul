@@ -48,29 +48,29 @@ class _moleculeInputsInfoContactState extends State<moleculeInputsInfoContact> {
     return Container(
       child: Column(
         children: [
-          atomSelects(
-            items: departaments,
-            selectedItem: departamentSelected,
-            onChanged: (selectedItem) {
-              // Manejar la opción seleccionada aquí
-              setState(() {
-                departamentSelected = selectedItem!;
-              });
-              // print('Opción seleccionada: $selectedItem');
-            },
-          ),
+          // atomSelects(
+          //   items: departaments,
+          //   selectedItem: departamentSelected,
+          //   onChanged: (selectedItem) {
+          //     // Manejar la opción seleccionada aquí
+          //     setState(() {
+          //       departamentSelected = selectedItem!;
+          //     });
+          //     // print('Opción seleccionada: $selectedItem');
+          //   },
+          // ),
           SizedBox(height: 40.0),
-          atomSelects(
-            items: municipalities,
-            selectedItem: municipalitySelected,
-            onChanged: (selectedItem) {
-              // Manejar la opción seleccionada aquí
-              setState(() {
-                municipalitySelected = selectedItem!;
-              });
-              // print('Opción seleccionada: $selectedItem');
-            },
-          ),
+          // atomSelects(
+          //   items: municipalities,
+          //   selectedItem: municipalitySelected,
+          //   onChanged: (selectedItem) {
+          //     // Manejar la opción seleccionada aquí
+          //     setState(() {
+          //       municipalitySelected = selectedItem!;
+          //     });
+          //     // print('Opción seleccionada: $selectedItem');
+          //   },
+          // ),
           SizedBox(height: 40.0),
           
           atomInputForm(

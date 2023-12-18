@@ -78,53 +78,53 @@ class _moleculeSelectsFishingZoneState extends State<moleculeSelectsFishingZone>
   Widget build(BuildContext context) {
     return Column(
       children: [
-          atomSelects(
-            items: departament,
-            selectedItem: departamentSelected,
-            onChanged: (selectedItem) {
-              // Manejar la opción seleccionada aquí
-              setState(() {
-                departamentSelected = selectedItem!;
-              });
-              // print('Opción seleccionada: $selectedItem');
-            },
-          ),
+          // atomSelects(
+          //   items: departament,
+          //   selectedItem: departamentSelected,
+          //   onChanged: (selectedItem) {
+          //     // Manejar la opción seleccionada aquí
+          //     setState(() {
+          //       departamentSelected = selectedItem!;
+          //     });
+          //     // print('Opción seleccionada: $selectedItem');
+          //   },
+          // ),
           SizedBox(height: 15.0,),
-          atomSelects(
-            items: departament,
-            selectedItem: departamentSelected,
-            onChanged: (selectedItem) {
-              // Manejar la opción seleccionada aquí
-              setState(() {
-                departamentSelected = selectedItem!;
-              });
-              // print('Opción seleccionada: $selectedItem');
-            },
-          ),
+          // atomSelects(
+          //   items: departament,
+          //   selectedItem: departamentSelected,
+          //   onChanged: (selectedItem) {
+          //     // Manejar la opción seleccionada aquí
+          //     setState(() {
+          //       departamentSelected = selectedItem!;
+          //     });
+          //     // print('Opción seleccionada: $selectedItem');
+          //   },
+          // ),
           SizedBox(height: 15.0,),
-          atomSelects(
-            items: departament,
-            selectedItem: departamentSelected,
-            onChanged: (selectedItem) {
-              // Manejar la opción seleccionada aquí
-              setState(() {
-                departamentSelected = selectedItem!;
-              });
-              // print('Opción seleccionada: $selectedItem');
-            },
-          ),
+          // atomSelects(
+          //   items: departament,
+          //   selectedItem: departamentSelected,
+          //   onChanged: (selectedItem) {
+          //     // Manejar la opción seleccionada aquí
+          //     setState(() {
+          //       departamentSelected = selectedItem!;
+          //     });
+          //     // print('Opción seleccionada: $selectedItem');
+          //   },
+          // ),
           SizedBox(height: 15.0,),
-          atomSelects(
-            items: departament,
-            selectedItem: departamentSelected,
-            onChanged: (selectedItem) {
-              // Manejar la opción seleccionada aquí
-              setState(() {
-                departamentSelected = selectedItem!;
-              });
-              // print('Opción seleccionada: $selectedItem');
-            },
-          ),
+          // atomSelects(
+          //   items: departament,
+          //   selectedItem: departamentSelected,
+          //   onChanged: (selectedItem) {
+          //     // Manejar la opción seleccionada aquí
+          //     setState(() {
+          //       departamentSelected = selectedItem!;
+          //     });
+          //     // print('Opción seleccionada: $selectedItem');
+          //   },
+          // ),
           SizedBox(height: 15.0,),
           atomInputForm(
             controllerInput: myControllerLandingSite,

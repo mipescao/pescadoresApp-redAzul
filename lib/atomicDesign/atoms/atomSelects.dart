@@ -1,69 +1,141 @@
 import 'package:flutter/material.dart';
+import 'package:pescadores/styles/globalStyles.dart';
 
-class atomSelects<String> extends StatelessWidget {
-  final List<String> items;
-  final void Function(String?) onChanged;
-  final String? selectedItem;
+class atomSelect<String> extends StatefulWidget {
 
-  atomSelects({
-    required this.items,
-    required this.onChanged,
-    this.selectedItem,
-  });
+  final List itemsSelect;
+  final void Function(String?)? onChanged;
+  final void Function(String?, String?)? onChangedTwo;
+  final nameSelect;
+  final bool? requiredSelect;
+  final bool? twoParams;
+  
+
+  const atomSelect({super.key,
+    required this.itemsSelect,
+    this.onChanged,
+    required this.nameSelect,
+    this.requiredSelect,
+    this.onChangedTwo,
+    this.twoParams,});
+
+  @override
+  State<atomSelect> createState() => _atomSelectState();
+}
+
+class _atomSelectState extends State<atomSelect> {
+  String selectedValue = '';
+
+  bool someSelected = false;
+  // final List listDocuments = <Object>[
+  //   {'value': '1', 'label': 'Cedula de ciudadania'},
+  //   {'value': '2', 'label': 'Pasaporte'},
+  //   {'value': '3', 'label': 'Tarjeta de identidad'},
+  // ];
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      // height: 40.0,
-      width: 400.0,
-      constraints:
-          BoxConstraints(maxWidth: MediaQuery.of(context).size.width * 0.90),
-      decoration: BoxDecoration(
-        color: Color(0xffffffff),
-        borderRadius:
-            BorderRadius.circular(20.0), // Agrega el border-radius deseado
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withOpacity(0.2),
-            spreadRadius: 2,
-            blurRadius: 5,
-            offset: Offset(0, 3),
-          ),
-        ],
-      ),
-      child: Column(
-        children: <Widget>[
-          Align(
-            child: DropdownButtonHideUnderline(
-              child: DropdownButton<String>(
-                value: selectedItem,
-                onChanged: onChanged,
-                items: items.map<DropdownMenuItem<String>>((String value) {
-                  return DropdownMenuItem<String>(
+    return GestureDetector(
+      onTap: () {
+        _showOptionsDialog(context);
+      },
+      child: Container(
 
-                    value: value,
-                    child: Container(
-                      width: MediaQuery.of(context).size.width * 0.80,
-                      child: Text(value.toString(),
-                      textAlign: TextAlign.center,
-                            style:
-                                TextStyle(color: Color(0xff0095CD), fontSize: 18.0),
-                            overflow: TextOverflow
-                                .ellipsis, // Corta el texto si es demasiado largo
-                            maxLines: 1,),
-                    ),
-                  );
-                }).toList(),
-                icon: Icon(
-                      Icons.arrow_drop_down_rounded, // Icono de flecha predeterminado
-                      color:
-                          Color(0xff0071BC), // Cambiar el color de la flecha a azul
-                    ),
+        child: Stack(
+          children: [
+            Container(
+              height: scaledFontSize(47.0),
+              width: 400.0,
+              constraints: BoxConstraints(
+                maxWidth: MediaQuery.of(context).size.width * 0.90),
+              padding: EdgeInsets.only(top:  5.0, bottom: 5.0, left: 10.0, right: 10.0),
+              decoration: styleInputs.decorationInputs,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  // Icono para centrar
+                  Icon(Icons.arrow_drop_down, color: Colors.transparent, size: 28.0,),
+                  Container(
+                    width: (MediaQuery.of(context).size.width * 0.9) - 76.0,
+                    child: someSelected ? Text(selectedValue, style: TextStyle(fontSize: scaledFontSize(20.0), color: Color(0xff0095CD), fontFamily: "NunitoRegular", fontWeight: FontWeight.normal),  textAlign: TextAlign.center, overflow: TextOverflow.ellipsis, maxLines: 1,) : Text(widget.nameSelect, style:  TextStyle(fontSize: scaledFontSize(20.0), color: Color(0xff0095CD).withOpacity(0.4), fontFamily: "NunitoRegular", fontWeight: FontWeight.normal ), textAlign: TextAlign.center,)
+                  ), 
+                  Icon(Icons.arrow_drop_down_rounded, color: Color(0xff0095CD),size: 28.0,),
+                ],
               ),
             ),
-          ),
-        ],
+            widget.requiredSelect == null || widget.requiredSelect == true ? Transform.translate(
+                offset:  Offset(0, -20.0),
+                child: Container(
+                  width: 400.0,
+                  constraints: BoxConstraints(
+                        maxWidth: MediaQuery.of(context).size.width * 0.90),
+                  // padding: EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
+                  color: Colors.transparent,
+                  child: Center(
+                    child: Container(
+                      
+                      color: Colors.white,
+                      // width: ,
+                      child: Text(
+                        'Este campo es óbligatorio',
+                        style: TextStyle(color: colores.gray4, fontSize:scaledFontSize(16.0), backgroundColor: colores.white,),
+                        textAlign: TextAlign.center,
+                      ),
+                    ),
+                  ),
+                ),
+              ): Container()
+          ],
+        ),
       ),
+    );
+        
+  }
+
+  Future<void> _showOptionsDialog(BuildContext context) async {
+    return showDialog<void>(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          backgroundColor: colores.white,
+          title: Text(widget.nameSelect, style: TextStyle(fontSize: scaledFontSize(20.0), fontFamily: "NunitoBold", fontWeight: FontWeight.normal, color: colores.blue5), textAlign: TextAlign.center,),
+          content:SingleChildScrollView(
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: widget.itemsSelect.map((document) {
+                return Column(
+                  children: [
+                    ListTile(
+                      title: Text(document.label, style: textAll.textBlue18, textAlign: TextAlign.center,),
+                      onTap: () {
+                        setState(() {
+                          someSelected = true; //Siempre debe ir esta variable
+                          selectedValue = document.label;
+                        });
+                        Navigator.of(context).pop();
+                        widget.twoParams == null || widget.twoParams == false ? widget.onChanged!((document.value).toString()) : widget.onChangedTwo!((document.value).toString(), (document.label).toString());
+                      },
+                    ),
+                    Container(
+                      width: 400.0,
+                      constraints: BoxConstraints(
+                        maxWidth: MediaQuery.of(context).size.width * 0.90
+                      ),
+                      child: Divider(
+                        color: colores.gray5,
+                        height: 1,
+                        thickness: 1,
+                      ),
+                    ),
+                  ],
+                );
+                
+              }).toList(),
+            ),
+          ),
+        );
+      },
     );
   }
 }

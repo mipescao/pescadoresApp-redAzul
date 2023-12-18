@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:pescadores/atomicDesign/pages/pageMain.dart';
+import 'package:pescadores/styles/globalStyles.dart';
 
 void main() {
   runApp(const MyApp());
@@ -21,7 +22,14 @@ class _MyAppState extends State<MyApp> {
       title: 'Modulo de pescadores',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        textTheme: GoogleFonts.nunitoTextTheme(),
+        // Cambiar el color por defecto del cursor
+        textSelectionTheme: TextSelectionThemeData(
+          cursorColor: colores.blue1,  // Color del cursor
+          selectionColor: colores.blue1,  // Color de la selección
+          selectionHandleColor: colores.blue1,  // Color del manipulador de selección
+        ),
+        
+        // textTheme: GoogleFonts.nunitoTextTheme(),
       ),
       home: pageMainPage(),
     );

@@ -67,29 +67,27 @@ class _moleculeInputsMOreAboutYouState
           // SizedBox(height: 30.0),
           atomSelectsYear(),
           SizedBox(height: 30.0),
-          atomSelects(
-            items: gender,
-            selectedItem: genderSelected,
+          atomSelect(
             onChanged: (selectedItem) {
               // Manejar la opción seleccionada aquí
               setState(() {
-                genderSelected = selectedItem!;
+                genderSelected = selectedItem as String;
               });
               // print('Opción seleccionada: $selectedItem');
-            },
+            }, itemsSelect: gender, nameSelect: "Genero",
           ),
           SizedBox(height: 30.0),
-          atomSelects(
-            items: ethnicGroup,
-            selectedItem: ethnicGroupSelected,
-            onChanged: (selectedItem) {
-              // Manejar la opción seleccionada aquí
-              setState(() {
-                ethnicGroupSelected = selectedItem!;
-              });
-              // print('Opción seleccionada: $selectedItem');
-            },
-          ),
+          // atomSelects(
+          //   items: ethnicGroup,
+          //   selectedItem: ethnicGroupSelected,
+          //   onChanged: (selectedItem) {
+          //     // Manejar la opción seleccionada aquí
+          //     setState(() {
+          //       ethnicGroupSelected = selectedItem!;
+          //     });
+          //     // print('Opción seleccionada: $selectedItem');
+          //   },
+          // ),
           SizedBox(height: 30.0),
           Column(
             children: [

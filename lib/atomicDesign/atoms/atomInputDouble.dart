@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pescadores/styles/globalStyles.dart';
 
 class atomInputDouble extends StatefulWidget {
   final TextEditingController controllerInput1;
@@ -28,6 +29,7 @@ class _atomInputDoubleState extends State<atomInputDouble> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Container(
+            padding: EdgeInsets.all(5.0),
             width: 400.0,
             height: 45.0,
             constraints: BoxConstraints(
@@ -54,8 +56,8 @@ class _atomInputDoubleState extends State<atomInputDouble> {
                 hintText: widget.textInput1,
                 hintStyle: TextStyle(
                     color: Color(0xff0095CD).withOpacity(0.5),
-                    fontSize: 18,
-                    fontFamily: "NunitoBold",
+                    fontSize: scaledFontSize(20.0),
+                    fontFamily: "NunitoRegular",
                     fontWeight: FontWeight.normal),
                 filled: true,
                 fillColor: Color(0xffffffff),
@@ -68,6 +70,7 @@ class _atomInputDoubleState extends State<atomInputDouble> {
           ),
           SizedBox(width: MediaQuery.of(context).size.width * 0.03),
           Container(
+            padding: EdgeInsets.all(5.0),
             width: 400.0,
             height: 45.0,
             constraints: BoxConstraints(
@@ -94,8 +97,8 @@ class _atomInputDoubleState extends State<atomInputDouble> {
                 hintText: widget.textInput2,
                 hintStyle: TextStyle(
                     color: Color(0xff0095CD).withOpacity(0.5),
-                    fontSize: 18,
-                    fontFamily: "NunitoBold",
+                    fontSize: scaledFontSize(20.0),
+                    fontFamily: "NunitoRegular",
                     fontWeight: FontWeight.normal),
                 filled: true,
                 fillColor: Color(0xffffffff),

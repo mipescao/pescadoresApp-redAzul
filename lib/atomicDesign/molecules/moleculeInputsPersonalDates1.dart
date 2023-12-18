@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:pescadores/atomicDesign/atoms/atomButtonSend.dart';
 import 'package:pescadores/atomicDesign/atoms/atomInputDouble.dart';
 import 'package:pescadores/atomicDesign/atoms/atomInputImage.dart';
@@ -15,12 +16,29 @@ final myControllerNumberDocument = TextEditingController();
 final myControllerCarnetAunap = TextEditingController();
 
 String selectedDocument = 'Cedula de ciudadania';
-final List<String> documents = [
-  'Cedula de ciudadania',
-  'Tarjeta de identidad',
-  'Pasaporte',
-];
 
+class documentType {
+  final int value;
+  final String label;
+
+  documentType({
+    required this.value,
+    required this.label
+  });
+
+  void showAll(){
+  }
+
+factory documentType.fromJson(Map<String, dynamic> json) {
+
+  return documentType(
+    value: json['value'],
+    label: json['label']
+  );
+}
+}
+
+List<documentType> typesOfSpecies = <documentType>[documentType(value: 1, label: 'Cedula de ciudadania2'), documentType(value: 2, label: '2') ];
 bool isCheckedSi = false;
 bool isCheckedNo = true;
 
@@ -47,36 +65,42 @@ class _moleculeInputsPersonalDates1State
               textInput2: 'Segundo nombre',
               icon2: Icon(Icons.password, color: Colors.transparent)),
           SizedBox(height: 30.0),
-          atomInputForm(
-              controllerInput: myControllerLastName,
-              textInput: 'Apellidos',
-              icon: Icon(Icons.password, color: Colors.transparent)),
+          atomInputRequiredForm(
+            controllerInput: myControllerLastName,
+            textInput: 'Apellidos',
+            typeKey: TextInputType.text,
+          ),
           SizedBox(height: 30.0),
-          atomInputForm(
-              controllerInput: myControllerNickName,
-              textInput: 'Sobrenombre',
-              icon: Icon(Icons.password, color: Colors.transparent)),
+          atomInputRequiredForm(
+            controllerInput: myControllerNickName,
+            textInput: 'Sobrenombre',
+            typeKey: TextInputType.text,
+            requiredInput: false,
+          ),
           SizedBox(height: 30.0),
-          atomSelects(
-            items: documents,
-            selectedItem: selectedDocument,
-            onChanged: (selectedItem) {
-              // Manejar la opción seleccionada aquí
-              setState(() {
-                selectedDocument = selectedItem!;
-              });
-              // print('Opción seleccionada: $selectedItem');
+          atomSelect(
+            itemsSelect: typesOfSpecies,
+            nameSelect: "Cedula de ciudadania",
+            onChanged: (selectedValue){
+              selectedDocument = selectedValue  as String;
             },
           ),
           SizedBox(height: 30.0),
-          atomInputForm(
-              controllerInput: myControllerNumberDocument,
-              textInput: 'Número de documento',
-              icon: Icon(Icons.password, color: Colors.transparent)),
+          atomInputRequiredForm(
+            controllerInput: myControllerNumberDocument,
+            textInput: 'Número de documento',
+            typeKey: TextInputType.text,
+          ),
           SizedBox(height: 30.0),
-          atomInputImage(),
+          atomInputImage(
+            nameVariable: 'Foto de la cédula',
+            onChanged: (XFile? fileSelected) {  
+              print(fileSelected);
+              print(fileSelected?.path);
+              print("dfjddlñfsjfsd hola m undo");
+            }
+          ),
           SizedBox(height: 30.0),
-          atomInputImage(),
           SizedBox(height: 30.0),
           atomSubtitle(subtitle: '¿Tienes carnet de la AUNAP?'),
           Center(
@@ -174,7 +198,15 @@ class _moleculeInputsPersonalDates1State
                     textInput: 'Número de carnet AUNAP',
                     icon: Icon(Icons.password, color: Colors.transparent)),
                 SizedBox(height: 30.0),
-                atomInputImage(),
+                atomInputImage(
+                  nameVariable: 'Número de carnet AUNAP',
+                  onChanged: (XFile? fileSelected) {  
+                    print(fileSelected);
+                    print(fileSelected?.path);
+                    print("dfjddlñfsjfsd hola m undo");
+                  }
+                ),
+
               ],
             ),
           ),

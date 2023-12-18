@@ -25,9 +25,7 @@ class _pageCreateAcountState extends State<pageCreateAcount> {
           ),
         ),
       ),
-      bottomNavigationBar: Container(
-        child: atomLogoMipescao(),
-      ),
+
     );
   }
 }

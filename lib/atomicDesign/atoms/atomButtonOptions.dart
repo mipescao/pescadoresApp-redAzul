@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:pescadores/styles/globalStyles.dart';
 class atomButtonOptions extends StatefulWidget {
   final String text;
   final String image;
@@ -24,7 +24,7 @@ class _atomButtonOptionsState extends State<atomButtonOptions> {
   Widget build(BuildContext context) {
     return Container(
       width: 400,
-      height: 90.0,
+      // height: 90.0,
       decoration: BoxDecoration(
         boxShadow: [
           BoxShadow(
@@ -61,7 +61,7 @@ class _atomButtonOptionsState extends State<atomButtonOptions> {
           child: Text(
             textAlign: TextAlign.center,
             widget.text,
-            style: TextStyle(fontFamily: "NunitoBold", fontSize: 22.0, fontWeight: FontWeight.bold),
+            style: TextStyle(fontFamily: "NunitoBold", fontSize: scaledFontSize(22.0), fontWeight: FontWeight.bold, color: colores.white),
           ),
         ),
       ),

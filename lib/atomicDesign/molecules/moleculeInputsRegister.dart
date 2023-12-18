@@ -21,24 +21,34 @@ class _moleculeInputsRegisterState extends State<moleculeInputsRegister> {
     return Container(
         child: Column(
       children: [
-        atomInputForm(
+        atomInputRequiredForm(
             controllerInput: myControllerCorreoRegister,
             textInput: "Correo electronico*",
-            icon: Icon(Icons.mail, color: Color(0xff0071BC))),
-        SizedBox(height: 32),
-        atomInputFormPassword(
-            controllerInput: myControllerPasswRegister1,
-            textInput: "Contraseña*",
-            icon: Icon(Icons.password, color: Color(0xff0071BC))),
-        SizedBox(height: 32),
-        atomInputFormPassword(
-            controllerInput: myControllerPasswRegister2,
-            textInput: "Confirmar contraseña*",
-            icon: Icon(Icons.password, color: Color(0xff0071BC))),
-        SizedBox(height: 10.0),
+            icon1: Icon(Icons.mail, color: Color(0xff0071BC)),
+            typeKey: TextInputType.emailAddress,),
+        SizedBox(height: 40),
+        atomInputRequiredForm(
+          controllerInput: myControllerPasswRegister1,
+          textInput: "Contraseña*",
+          icon1: Icon(Icons.password, color: Color(0xff0071BC)),
+          icon2: Icon(Icons.visibility_off, color: Color(0xff0071BC)),
+          typeKey: TextInputType.visiblePassword,
+          inputPassw: true,
+        ),
+            
+        SizedBox(height: 40),
+        atomInputRequiredForm(
+          controllerInput: myControllerPasswRegister2,
+          textInput: "Confirmar contraseña*",
+          icon1: Icon(Icons.password, color: Color(0xff0071BC)),
+          icon2: Icon(Icons.visibility_off, color: Color(0xff0071BC)),
+          typeKey: TextInputType.visiblePassword,
+          inputPassw: true,
+        ),
+        SizedBox(height: 20.0),
         atomText(
-            text:
-                "Usa 8 o más caracteres con una combinación de letras, números y símbolos")
+          text:
+            "Usa 8 o más caracteres con una combinación de letras, números y símbolos")
       ],
     ));
   }

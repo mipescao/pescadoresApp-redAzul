@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pescadores/styles/globalStyles.dart';
 
 class atomTitle extends StatefulWidget {
   final String title;
@@ -19,7 +20,7 @@ class _atomTitleState extends State<atomTitle> {
         widget.title,
         textAlign: TextAlign.center,
         style: TextStyle(
-          fontSize: 30.0,
+          fontSize: scaledFontSize(28.0),
           fontFamily: "NunitoBold",
           fontWeight: FontWeight.bold,
           color: Color(0xff0095CD),

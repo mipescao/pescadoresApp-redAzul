@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pescadores/styles/globalStyles.dart';
 
 class atomInputForm extends StatefulWidget {
   final TextEditingController controllerInput;
@@ -219,5 +220,161 @@ class _atomInputForm80State extends State<atomInputForm80> {
         ),
       ),
     );
+  }
+}
+
+
+class atomInputRequiredForm extends StatefulWidget {
+  final TextEditingController controllerInput;
+  final String textInput;
+  final Icon? icon1;
+  final Icon? icon2;
+  final TextInputType typeKey;
+  final bool? inputPassw;
+  final Function(String)? onChanged;
+  final errorText;
+  final bool? requiredInput;
+
+  const atomInputRequiredForm(
+      {super.key,
+      required this.controllerInput,
+      required this.textInput,
+      this.icon1,
+      this.icon2,
+      required this.typeKey, 
+      this.inputPassw,
+      this.onChanged, 
+      this.errorText,
+      this.requiredInput
+    }
+  );
+
+  @override
+  State<atomInputRequiredForm> createState() => _atomInputRequiredFormState();
+}
+
+class _atomInputRequiredFormState extends State<atomInputRequiredForm> {
+  Color _verifyRequiered = Color(0xff0095CD).withOpacity(0.5);
+  bool statePassword = true;
+  Icon? passwordIcon;
+
+  @override
+  Widget build(BuildContext context) {
+
+    passwordIcon = widget.icon2 != null ? widget.icon2 : Icon(Icons.visibility_off, color: Colors.transparent);
+
+    bool errorExist = false;
+
+    if(widget.errorText == null){
+      setState(() {
+        errorExist = false;
+      });
+    }else{
+      setState(() {
+        errorExist = true;
+      });
+    }
+
+    return Column(
+      children: [
+        Column(
+          children: [
+            Container(
+              width: 400.0,
+              // height: scaledFontSize(47.0),
+              constraints: BoxConstraints(
+                  maxWidth: MediaQuery.of(context).size.width * 0.90),
+              decoration: styleInputs.decorationInputs,
+              child: TextFormField(
+                keyboardType: widget.typeKey,
+                controller: widget.controllerInput,
+                obscureText: widget.inputPassw != null && widget.inputPassw != false ? statePassword : false ,
+                onChanged: widget.onChanged,
+                textAlign: TextAlign.center,
+                style: TextStyle(fontSize: scaledFontSize(20.0), color: Color(0xff0095CD), fontFamily: "NunitoRegular", fontWeight: FontWeight.normal),
+                cursorColor: colores.blue1,
+                decoration: InputDecoration(
+                  contentPadding: EdgeInsets.zero,
+                  prefixIcon: Padding(
+                    padding: EdgeInsets.only(
+                        left: 15), // Agregar padding a la izquierda del Icon
+                    child: widget.icon1 != null ? 
+                      widget.icon1 
+                        : 
+                      Icon(
+                        Icons.visibility_off,
+                        color: Colors.transparent,
+                      ),
+                  ),
+                  hintText: widget.textInput,
+                  hintStyle: TextStyle(
+                      color: _verifyRequiered,
+                      fontSize: scaledFontSize(20.0),
+                      fontFamily: "NunitoRegular",
+                      fontWeight: FontWeight.normal),
+                  filled: true,
+                  fillColor: Color(0xffffffff),
+                  focusedBorder: errorExist ? OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(20.0),
+                    borderSide: BorderSide(
+                      color: colores.orange, // Cambia el color del borde al hacer clic en el campo
+                    ),
+                  ) : OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(20.0),
+                    borderSide: BorderSide(
+                      color: Colors.transparent, //
+                    ),),
+
+                  enabledBorder:  errorExist ?  OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(20.0),
+                      borderSide: BorderSide(color: colores.orange)
+                    ) : OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(20.0),
+                      borderSide: BorderSide.none
+                    ),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(20.0),
+                    borderSide: BorderSide.none,
+                  ),
+                  // suffixIcon: widget.icon2 != null ? widget.icon2 : Icon(
+                  //   Icons.visibility_off,
+                  //   color: Colors.transparent,
+                  // ),
+                  suffixIcon: widget.inputPassw != null && widget.inputPassw != false ? 
+                  GestureDetector(
+                    onTap: () {
+                      if (statePassword == false) {
+                        setState(() {
+                          statePassword = true;
+                          passwordIcon = Icon(Icons.visibility_off, color: Color(0xff0071BC));
+                        });
+                      } else if (statePassword == true) {
+                        setState(() {
+                          statePassword = false;
+                          passwordIcon = Icon(Icons.visibility, color: Color(0xff0071BC));
+                        });
+                        
+                      }
+                      // setState(() {
+                      //   viewPassword();
+                      // });
+                      // Agrega aquí la función que deseas ejecutar al tocar el icono
+                    },
+                    child: passwordIcon
+                  )
+                  : passwordIcon,
+                  labelText: widget.requiredInput == null && widget.requiredInput != true ? errorExist ? widget.errorText  : 'Este campo es óbligatorio' : "",
+                  labelStyle: errorExist ?  TextStyle(color: colores.orange, fontSize:scaledFontSize(20.0), backgroundColor: colores.white,) : TextStyle(color: colores.gray4, fontSize:22, backgroundColor: colores.white),
+                  floatingLabelAlignment: FloatingLabelAlignment.center,
+                  floatingLabelBehavior: FloatingLabelBehavior.always,
+              
+                ),
+              ),
+            ),
+          ],
+        ),
+      ],
+    );
+
   }
 }

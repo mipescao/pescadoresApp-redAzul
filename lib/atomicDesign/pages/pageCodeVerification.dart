@@ -24,9 +24,6 @@ class _pageCodeVerificationState extends State<pageCodeVerification> {
           ),
         ),
       ),
-      bottomNavigationBar: Container(
-        child: atomLogoMipescao(),
-      ),
     );
   }
 }
