@@ -4,7 +4,18 @@ import 'package:pescadoresapp_redazul/globalStyles/styles.dart';
 
 // Parametros
 // Obligatorios
-// 
+// TextInput: Nombre del input
+// typeKey: Tipo de teclado que se quiere mostrar (numerorico, texto, etc.)
+// Opcionales
+// ControllerInput: Controlador del input
+// icon: Icono del input
+// onchanged: funcion que se ejecutara cuando se escriba algo en el input
+// widthInput: Ancho del input
+// viewIcons: Si se quiere quitar el espacio que ocupa el input
+// textRequired: Si se quiere cambiar el texto que viene por defecto en el input que dice: "Este campo es obligatorio"
+// maxLengthInput: Maximo de caracteres que recibe el input
+// maxLineInput: Si quieres que el input pueda crecer con la cantidad del texto (Boolean)
+// heightInput: Alto del input
 
 class atomInputsForm extends StatefulWidget {
   final TextEditingController? controllerInput;
@@ -17,7 +28,6 @@ class atomInputsForm extends StatefulWidget {
   final bool? viewIcons;
   final String? textRequired;
   final int? maxLengthInput;
-  final int? mixLengthInput;
   final bool? maxLineNull;
   final double? heightInput;
 
@@ -32,7 +42,6 @@ class atomInputsForm extends StatefulWidget {
       this.widthInput,
       this.viewIcons,
       this.textRequired,
-      this.mixLengthInput,
       this.maxLengthInput,
       this.maxLineNull,
       this.heightInput,
@@ -67,15 +76,12 @@ class _atomInputsFormState extends State<atomInputsForm> {
         Column(
           children: [
             Container(
-              width: 400.0,
               height: widget.heightInput != null ? widget.heightInput : null ,
+              width: widget.widthInput ?? 400.0,
               constraints: BoxConstraints(
-              maxWidth: widget.widthInput ?? MediaQuery.of(context).size.width * 0.90),
+                maxWidth: MediaQuery.of(context).size.width * 0.90,),
               decoration: styleInputs.decorationInputs,
               child: TextFormField(
-                // inputFormatters: [
-                //   FilteringTextInputFormatter.deny(RegExp(r'[\p{Emoji}]')),
-                // ],
                 maxLines: widget.maxLineNull != null && widget.maxLineNull == true ? null : 1,
                 keyboardType: widget.typeKey,
                 controller: widget.controllerInput ?? null,
@@ -169,6 +175,7 @@ class atomInputComplete extends StatefulWidget {
   final String valueInput;
   final Function? functionClick;
   final double? widthInput;
+
 
   const atomInputComplete(
       {super.key,
