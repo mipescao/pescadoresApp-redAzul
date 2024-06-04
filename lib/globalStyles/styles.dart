@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'dart:ui';
 
-double checkHeightScreen() {
-  WidgetsFlutterBinding.ensureInitialized();
-
-  // ignore: deprecated_member_use
-  return window.physicalSize.height / window.devicePixelRatio;
+double checkHeightScreen(context) {
+  final height = MediaQuery.of(context).size.height - kToolbarHeight;
+  return height;
 }
 
 double checkWidthScreen() {
@@ -132,9 +130,6 @@ class sizedBoxAll {
     height: 20.0,
   );
 
-  static SizedBox sizedBoxHeight1 = SizedBox(
-    height: checkHeightScreen() * 0.03,
-  );
 
   static SizedBox sizedBoxWidth = SizedBox(
     width: 5.0,
@@ -147,176 +142,12 @@ class sizedBoxAll {
 
 // diferentes estilos para los textos
 class textAll {
-  static TextStyle titleGray = TextStyle(
-    fontSize: scaledFontSize(23.0),
-    fontFamily: "NunitoBold",
-    fontWeight: FontWeight.bold,
-    color: colores.gray2,
-  );
-
-  static TextStyle titleBlueLight = TextStyle(
-    fontSize: scaledFontSize(23.0),
+  static TextStyle titleBlueLight= TextStyle(
+    fontSize: scaledFontSize(25.0),
     fontFamily: "NunitoBold",
     fontWeight: FontWeight.bold,
     color: colores.blue5,
   );
-
-    static TextStyle titleBlue6 = TextStyle(
-    fontSize: scaledFontSize(23.0),
-    fontFamily: "NunitoBold",
-    fontWeight: FontWeight.bold,
-    color: colores.blue6,
-  );
-
-  static TextStyle titleGreen  = TextStyle(
-    fontSize: scaledFontSize(23.0),
-    fontFamily: "NunitoBold",
-    fontWeight: FontWeight.normal,
-    color: colores.green );
-
-  static TextStyle titleWhite  = TextStyle(
-    fontSize: scaledFontSize(23.0),
-    fontFamily: "NunitoBold",
-    fontWeight: FontWeight.normal,
-    color: colores.white );
-
-  static TextStyle subTitleGray = TextStyle(
-    fontSize: scaledFontSize(22.0),
-    fontFamily: "NunitoBold",
-    fontWeight: FontWeight.normal,
-    color: colores.gray1
-  );
-
-  static TextStyle subTitleGray1 = TextStyle(
-    fontSize: scaledFontSize(22.0),
-    fontFamily: "NunitoBold",
-    fontWeight: FontWeight.normal,
-    color: colores.gray2
-  );
-
-  static TextStyle subTitleGray19 = TextStyle(
-    fontSize: scaledFontSize(19.0),
-    fontFamily: "NunitoBold",
-    fontWeight: FontWeight.normal,
-    color: colores.gray2
-  );
-
-  static TextStyle subTitleGrayOpacity = TextStyle(
-    fontSize: scaledFontSize(22.0),
-    fontFamily: "NunitoBold",
-    fontWeight: FontWeight.normal,
-    color: colores.gray2.withOpacity(0.4)
-  );
-
-  static TextStyle subTitleWhite = TextStyle(
-    fontSize: scaledFontSize(22.0),
-    fontFamily: "NunitoBold",
-    fontWeight: FontWeight.normal,
-    color: colores.white,
-  );
-
-  static TextStyle subTitleBlueLight = TextStyle(
-    fontSize: scaledFontSize(22.0),
-    fontFamily: "NunitoBold",
-    fontWeight: FontWeight.normal,
-    color: colores.blue5
-  );
-
-  static TextStyle subTitleBlue6 = TextStyle(
-    fontSize: scaledFontSize(22.0),
-    fontFamily: "NunitoBold",
-    fontWeight: FontWeight.normal,
-    color: colores.blue6
-  );
-
-  static TextStyle subTitleBlue1 = TextStyle(
-    fontSize: scaledFontSize(22.0),
-    fontFamily: "NunitoBold",
-    fontWeight: FontWeight.normal,
-    color: colores.blue1
-  );
-
-  static TextStyle subTitleBlu3 = TextStyle(
-    fontSize: scaledFontSize(22.0),
-    fontFamily: "NunitoBold",
-    fontWeight: FontWeight.normal,
-    color: colores.blue3
-  );
-
-  static TextStyle subTitleDartBlue = TextStyle(
-    fontSize: scaledFontSize(22.0),
-    fontFamily: "NunitoBold",
-    fontWeight: FontWeight.bold,
-    color: colores.blue3
-  );
-
-  static TextStyle textGray  = TextStyle(
-    fontSize: scaledFontSize(18.0),
-    fontFamily: "NunitoRegular",
-    fontWeight: FontWeight.normal,
-    color: colores.gray2);
-
-  static TextStyle textWhite  = TextStyle(
-    fontSize: scaledFontSize(18.0),
-    fontFamily: "NunitoRegular",
-    fontWeight: FontWeight.normal,
-    color: colores.white);
-
-  static TextStyle textWhite16  = TextStyle(
-    fontSize: scaledFontSize(16.0),
-    fontFamily: "NunitoRegular",
-    fontWeight: FontWeight.normal,
-    color: colores.white);
-
-    static TextStyle textBlue  = TextStyle(
-      fontSize: scaledFontSize(20.0),
-      fontFamily: "NunitoRegular",
-      fontWeight: FontWeight.normal,
-      color: colores.blue1);
-
-    static TextStyle textBlueLight  = TextStyle(
-      fontSize: scaledFontSize(18.0),
-      fontFamily: "NunitoRegular",
-      fontWeight: FontWeight.normal,
-      color: colores.blue1);
-      
-    static TextStyle subTitleBlueLight20 = TextStyle(
-    fontSize: scaledFontSize(20.0),
-    fontFamily: "NunitoRegular",
-    fontWeight: FontWeight.normal,
-    color: colores.blue1
-    );
-
-    static TextStyle textGrayBold  = TextStyle(
-      fontSize: scaledFontSize(18.0),
-      fontFamily: "NunitoBold",
-      fontWeight: FontWeight.bold,
-      color: colores.gray2);
-
-    static TextStyle textBlue18  = TextStyle(
-      fontSize: scaledFontSize(18.0),
-      fontFamily: "NunitoRegular",
-      fontWeight: FontWeight.normal,
-      color: colores.blue1);
-
-    static TextStyle subTitleWhite18 = TextStyle(
-      fontSize: scaledFontSize(18.0),
-      fontFamily: "NunitoBold",
-      fontWeight: FontWeight.normal,
-      color: colores.white,);
-
-    static TextStyle textBlue22 = TextStyle(
-      fontSize: scaledFontSize(22.0),
-      fontFamily: "NunitoRegular",
-      fontWeight: FontWeight.normal,
-      color: colores.blue1);
-
-    static TextStyle textBlue20_2  = TextStyle(
-      fontSize: scaledFontSize(19.0),
-      fontFamily: "NunitoRegular",
-      fontWeight: FontWeight.normal,
-      color: colores.blue2);
-
 }
 
 

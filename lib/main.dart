@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:pescadoresapp_redazul/atomicDesign/atoms/atomInputs.dart';
-import 'package:pescadoresapp_redazul/atomicDesign/atoms/atomSelect.dart';
-import 'package:pescadoresapp_redazul/atomicDesign/pages/home.dart';
-import 'package:pescadoresapp_redazul/atomicDesign/pages/register.dart';
+import 'package:flutter/services.dart';
 import 'package:pescadoresapp_redazul/routes/globalRoutes.dart';
 
 void main() {
-  runApp(const MyApp());
+  // runApp(const MyApp());
+  WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+    DeviceOrientation.portraitDown, // Opcional: permite el modo vertical invertido
+  ]).then((_) {
+    runApp(MyApp());
+  });
 }
 
 class MyApp extends StatelessWidget {
@@ -30,33 +34,6 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       // Archivo de rutas
       routes: AppRoutes.routes,
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key});
-
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          atomInputComplete(
-            textInput: "holasfdsf",
-            valueInput: "weewrere",
-          ),
-        ],
-      )),
     );
   }
 }

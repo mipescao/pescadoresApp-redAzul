@@ -185,3 +185,118 @@ class _atomCardRowBorderDoubleState extends State<atomCardRowBorderDouble> {
   }
 }
 
+
+
+class atomCardRow extends StatefulWidget {
+  final String textInput;
+  final Color colorCard;
+  final Color? colorLetter1;
+  final String imageCard;
+  final void Function() nameFunction;
+  final bool completed;
+  final double? widthCard;
+  final double? fontSize;
+  final double? widthImage;
+  final double? widthText;
+
+  const atomCardRow(
+    {
+      super.key,
+      required this.textInput,
+      required this.colorCard,
+      this.colorLetter1,
+      required this.imageCard,
+      required this.nameFunction,
+      required this.completed,
+      this.widthCard,
+      this.fontSize,
+      this.widthImage,
+      this.widthText
+    });
+
+  @override
+  State<atomCardRow> createState() => _atomCardRowState();
+}
+
+class _atomCardRowState extends State<atomCardRow> {
+
+  // double widthCard = widget.widthCard != null ? widget.widthCard : 400.0;
+
+  @override
+  Widget build(BuildContext context) {
+
+    double obtenerAnchoConPorcentaje(double? ancho, double porcentaje) {
+
+      if (ancho != null) {
+        return ancho * porcentaje;
+      } else {
+        return (MediaQuery.of(context).size.width * 0.90) * porcentaje;
+      }
+    }
+
+    return  GestureDetector(
+      child: Container(
+        decoration: BoxDecoration(
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withOpacity(0.2),
+              spreadRadius: 2,
+              blurRadius: 5,
+              offset: Offset(0, 3),
+            ),
+          ],
+          color: widget.colorCard,
+          borderRadius: BorderRadius.circular(10.0),
+        ),
+        padding: EdgeInsets.only(top: 0.10 * 210, bottom: 0.10 * 210, left: 0.08 * 210, right: 0.08 * 210),
+        width: widget.widthCard != null ? 400.0 : widget.widthCard,
+        // height: 110.0,
+        constraints: BoxConstraints(
+          maxWidth: MediaQuery.of(context).size.width * 0.90,
+        ),
+        child: Stack(
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Container(
+                  width: widget.widthImage != null ? obtenerAnchoConPorcentaje(widget.widthCard, widget.widthImage!) : obtenerAnchoConPorcentaje(widget.widthCard, 0.25),
+                  child: Image.asset(
+                    'assets/images/${widget.imageCard}',
+                    fit: BoxFit.contain, 
+                  ),
+                ),
+                Container(
+                  width: widget.widthText != null ? obtenerAnchoConPorcentaje(widget.widthCard, widget.widthText!) : obtenerAnchoConPorcentaje(widget.widthCard, 0.60),
+                  child: Center(
+                    child: Text(
+                      widget.textInput,
+                      style: TextStyle(color: widget.colorLetter1 ?? colores.white, fontSize: widget.fontSize ?? scaledFontSize(18.0), fontFamily: 'NunitoBold'),
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
+                )
+              ],
+            ),
+            widget.completed ? 
+            Positioned(
+              top: 0, // Píxeles desde la parte superior
+              right: 0, // Píxeles desde la izquierda
+              child: Container(
+                child: Image.asset(
+                    'assets/images/ImgTrazul/ok.png',
+                    height: 24.0,
+                    // fit: BoxFit.contain, 
+                  ),
+              ),
+            )
+            :
+            Container(),
+          ],
+        ),
+      ),
+      onTap: () {
+        widget.nameFunction();
+      });
+  }
+}

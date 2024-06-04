@@ -146,7 +146,7 @@ class _atomSelectState extends State<atomSelect> {
                             color: colores.blue6,
                           ), textAlign: TextAlign.center,) : Container(height: 0.0,),
                           // Text(document.label, style: 
-                          Text(document.label, style: textAll.textBlue18, textAlign: TextAlign.center,),
+                          Text(document.label, style: TextStyle(fontSize: scaledFontSize(18.0), fontFamily: "NunitoRegular", fontWeight: FontWeight.normal, color: colores.blue1), textAlign: TextAlign.center,),
                           widget.existDate != null && widget.existDate != false ?  Text(document.date, style: TextStyle(
 
                             fontSize: scaledFontSize(16.0),
