@@ -30,6 +30,9 @@ class atomInputsForm extends StatefulWidget {
   final int? maxLengthInput;
   final bool? maxLineNull;
   final double? heightInput;
+  final Function(String)? validator;
+  final Function(String?)? onSaved;
+  final bool? enabled;
 
   const atomInputsForm(
       {super.key,
@@ -45,6 +48,9 @@ class atomInputsForm extends StatefulWidget {
       this.maxLengthInput,
       this.maxLineNull,
       this.heightInput,
+      this.validator,
+      this.onSaved,
+      this.enabled
       });
 
   @override
@@ -71,6 +77,8 @@ class _atomInputsFormState extends State<atomInputsForm> {
       });
     }
 
+
+
     return Column(
       children: [
         Column(
@@ -82,10 +90,13 @@ class _atomInputsFormState extends State<atomInputsForm> {
                 maxWidth: MediaQuery.of(context).size.width * 0.90,),
               decoration: styleInputs.decorationInputs,
               child: TextFormField(
+                enabled: widget.enabled ?? true,
                 maxLines: widget.maxLineNull != null && widget.maxLineNull == true ? null : 1,
                 keyboardType: widget.typeKey,
                 controller: widget.controllerInput ?? null,
                 onChanged: widget.onChanged,
+                validator: validateEMail,
+                onSaved: widget.onSaved,
                 maxLength: widget.maxLengthInput ?? null,
                 textAlign: TextAlign.center,
                 style: TextStyle(fontSize: scaledFontSize(20.0), color: Color(0xff0095CD), fontFamily: "NunitoRegular", fontWeight: FontWeight.normal),
@@ -115,7 +126,6 @@ class _atomInputsFormState extends State<atomInputsForm> {
                     borderSide: BorderSide(
                       color: Colors.transparent, //
                     ),),
-
                   enabledBorder:  errorExist ?  OutlineInputBorder(
                       borderRadius: BorderRadius.circular(20.0),
                       borderSide: BorderSide(color: colores.orange)
@@ -135,7 +145,7 @@ class _atomInputsFormState extends State<atomInputsForm> {
                   labelStyle: errorExist ?  TextStyle(color: colores.orange, fontSize:scaledFontSize(20.0), backgroundColor: colores.white,) : TextStyle(color: colores.gray4, fontSize:scaledFontSize(20.0), backgroundColor: colores.white,),
                   floatingLabelAlignment: FloatingLabelAlignment.center,
                   floatingLabelBehavior: FloatingLabelBehavior.always,
-              
+
                 ),
               ),
             ),
@@ -143,6 +153,15 @@ class _atomInputsFormState extends State<atomInputsForm> {
         ),
       ],
     );
+  }
+  
+  test() {
+    return null;
+  }
+
+  String? validateEMail(String? value) {
+    print(value);
+    widget.validator!(value!);
   }
 }
 
@@ -252,5 +271,138 @@ class _atomInputCompleteState extends State<atomInputComplete> {
         ),
       ),
     );
+  }
+}
+
+
+class atomInputFormPassword extends StatefulWidget {
+  final TextEditingController? controllerInput;
+  final String textInput;
+  final Icon icon;
+  final Function(String)?  onChanged;
+  final String? errorText;
+
+  const atomInputFormPassword(
+      {super.key,
+      this.controllerInput,
+      required this.textInput,
+      required this.icon,
+      this.onChanged,
+      this.errorText
+      });
+
+  @override
+  State<atomInputFormPassword> createState() => _atomInputFormPasswordState();
+}
+
+
+class _atomInputFormPasswordState extends State<atomInputFormPassword> {
+  bool statePassword = true;
+  Icon passwordIcon = Icon(Icons.visibility_off, color: Color(0xff0071BC));
+
+  @override
+  Widget build(BuildContext context) {
+
+  bool errorExist = false;
+
+  if(widget.errorText == null){
+    setState(() {
+      errorExist = false;
+    });
+  }else{
+    setState(() {
+      errorExist = true;
+    });
+  }
+
+    return Container(
+      width: 400.0,
+      // height: scaledFontSize(47.0),
+      constraints:
+          BoxConstraints(maxWidth: MediaQuery.of(context).size.width * 0.90),
+      decoration: BoxDecoration(
+        color: Color(0xffffffff),
+        borderRadius:
+            BorderRadius.circular(24.0), // Agrega el border-radius deseado
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.2),
+            spreadRadius: 2,
+            blurRadius: 5,
+            offset: Offset(0, 3),
+          ),
+        ],
+      ),
+      child: TextFormField(
+        controller: widget.controllerInput ?? null,
+        onChanged: widget.onChanged,
+        textAlign: TextAlign.center,
+        cursorColor: colores.blue1,
+        obscureText: statePassword,
+        style: TextStyle(fontSize:  scaledFontSize(20.0), color: Color(0xff0095CD), fontFamily: "NunitoRegular", fontWeight: FontWeight.normal),
+        decoration: InputDecoration(
+          contentPadding: EdgeInsets.zero,
+          prefixIcon: Padding(
+              padding: EdgeInsets.only(
+                  left: 15), // Agregar padding a la izquierda del Icon
+              child: widget.icon),
+          hintText: widget.textInput,
+          hintStyle: TextStyle(
+              color: Color(0xff0095CD).withOpacity(0.5),
+              fontSize:  scaledFontSize(20.0),
+              fontFamily: "NunitoRegular",
+              fontWeight: FontWeight.normal),
+          filled: true,
+          fillColor: Color(0xffffffff),
+          focusedBorder: errorExist ? OutlineInputBorder(
+            borderRadius: BorderRadius.circular(20.0),
+            borderSide: BorderSide(
+              color: colores.orange, // Cambia el color del borde al hacer clic en el campo
+            ),
+          ) : OutlineInputBorder(
+            borderRadius: BorderRadius.circular(20.0),
+            borderSide: BorderSide(
+              color: Colors.transparent, //
+            ),),
+
+          enabledBorder:  errorExist ?  OutlineInputBorder(
+              borderRadius: BorderRadius.circular(20.0),
+              borderSide: BorderSide(color: colores.orange)
+            ) : OutlineInputBorder(
+              borderRadius: BorderRadius.circular(20.0),
+              borderSide: BorderSide.none
+            ),
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(20.0),
+            borderSide: BorderSide.none
+          ),
+          labelText:  errorExist ? widget.errorText  : 'Este campo es obligatorio',
+          labelStyle: errorExist ?  TextStyle(color: colores.orange, fontSize:scaledFontSize(22.0), backgroundColor: colores.white,) : TextStyle(color: colores.gray4, fontSize:scaledFontSize(22.0), backgroundColor: colores.white,),
+          floatingLabelAlignment: FloatingLabelAlignment.center,
+          floatingLabelBehavior: FloatingLabelBehavior.always,
+          suffixIcon: GestureDetector(
+            onTap: () {
+              setState(() {
+                viewPassword();
+              });
+              // Agrega aquí la función que deseas ejecutar al tocar el icono
+            },
+            child: passwordIcon
+          ),
+              // errorText: widget.errorText
+        ),
+      ),
+    );
+  }
+
+  // funcion para cambiar el estado del input de borrar
+  viewPassword() {
+    if (statePassword == false) {
+      statePassword = true;
+      passwordIcon = Icon(Icons.visibility_off, color: Color(0xff0071BC));
+    } else if (statePassword == true) {
+      statePassword = false;
+      passwordIcon = Icon(Icons.visibility, color: Color(0xff0071BC));
+    }
   }
 }

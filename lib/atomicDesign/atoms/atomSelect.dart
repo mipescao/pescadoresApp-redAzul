@@ -58,9 +58,6 @@ class _atomSelectState extends State<atomSelect> {
 
   TextEditingController valueSelect = TextEditingController();
   
-
-
-
   // final List listDocuments = <Object>[
   //   {'value': '1', 'label': 'Cedula de ciudadania'},
   //   {'value': '2', 'label': 'Pasaporte'},

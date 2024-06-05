@@ -39,6 +39,8 @@ dependencies:
   mipescao_desing_system:
     git:
       url: https://github.com/jj131204/mipescao_desing_system
+  file_picker: ^8.0.3
+  
 
 dev_dependencies:
   flutter_test:

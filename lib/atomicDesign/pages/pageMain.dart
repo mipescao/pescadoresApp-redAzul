@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:pescadoresapp_redazul/atomicDesign/atoms/atomButton.dart';
 import 'package:pescadoresapp_redazul/atomicDesign/atoms/atomLogo.dart';
 import 'package:pescadoresapp_redazul/atomicDesign/atoms/atomText.dart';
 import 'package:pescadoresapp_redazul/globalStyles/styles.dart';

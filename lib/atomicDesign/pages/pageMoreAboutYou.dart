@@ -1,16 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:pescadoresapp_redazul/atomicDesign/organisms/organismselectTypeUser.dart';
+import 'package:pescadoresapp_redazul/atomicDesign/organisms/organismMoreAboutYou.dart';
 
-class pageSelectTypeUser extends StatefulWidget {
-  const pageSelectTypeUser({super.key});
+class pageMoreAboutYou extends StatefulWidget {
+  const pageMoreAboutYou({super.key});
 
   @override
-  State<pageSelectTypeUser> createState() => _pageSelectTypeUserState();
+  State<pageMoreAboutYou> createState() => _pageMoreAboutYouState();
 }
 
-class _pageSelectTypeUserState extends State<pageSelectTypeUser> {
-
-
+class _pageMoreAboutYouState extends State<pageMoreAboutYou> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,7 +18,7 @@ class _pageSelectTypeUserState extends State<pageSelectTypeUser> {
           child: Center(
               child: Column(
             children: [
-              organismSelectTypeUser()
+              organismMoreAboutYou()
             ],
           )),
         )

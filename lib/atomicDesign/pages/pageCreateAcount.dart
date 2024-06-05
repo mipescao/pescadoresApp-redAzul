@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pescadoresapp_redazul/atomicDesign/organisms/organismselectTypeUser.dart';
+import 'package:pescadoresapp_redazul/atomicDesign/organisms/organismCreateAcount.dart';
 
 class pageCreateAcount extends StatefulWidget {
   const pageCreateAcount({super.key});
@@ -24,6 +24,6 @@ class _pageCreateAcountState extends State<pageCreateAcount> {
         )
       )
       
-    );;
+    );
   }
 }

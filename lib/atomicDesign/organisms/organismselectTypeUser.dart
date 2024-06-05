@@ -1,18 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:pescadoresapp_redazul/atomicDesign/atoms/atomCard.dart';
-import 'package:pescadoresapp_redazul/atomicDesign/atoms/atomCardborderRounded.dart';
-import 'package:pescadoresapp_redazul/atomicDesign/atoms/atomLogo.dart';
 import 'package:pescadoresapp_redazul/atomicDesign/atoms/atomText.dart';
 import 'package:pescadoresapp_redazul/globalStyles/styles.dart';
 
-class organismCreateAcount extends StatefulWidget {
-  const organismCreateAcount({super.key});
+class organismSelectTypeUser extends StatefulWidget {
+  const organismSelectTypeUser({super.key});
 
   @override
-  State<organismCreateAcount> createState() => _organismCreateAcountState();
+  State<organismSelectTypeUser> createState() => _organismSelectTypeUserState();
 }
 
-class _organismCreateAcountState extends State<organismCreateAcount> {
+class _organismSelectTypeUserState extends State<organismSelectTypeUser> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -54,7 +52,7 @@ class _organismCreateAcountState extends State<organismCreateAcount> {
             child: atomCardRow(
               textInput: 'Soy un pescador',
               colorCard: Color(0xff0071BC),
-              imageCard: 'engorde.png',
+              imageCard: 'pescador.png',
               fontSize: scaledFontSize(25.0),
               widthImage: 0.20,
               widthText: 0.65,
