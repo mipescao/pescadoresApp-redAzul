@@ -1,6 +1,8 @@
 // app_routes.dart
 
 import 'package:flutter/material.dart';
+import 'package:pescadoresapp_redazul/atomicDesign/pages/pageInfoContact.dart';
+import 'package:pescadoresapp_redazul/atomicDesign/pages/pageInfoProfile.dart';
 
 // ruta principal
 import 'package:pescadoresapp_redazul/atomicDesign/pages/pageMain.dart';
@@ -25,5 +27,7 @@ class AppRoutes {
     '/termsAndConditions': (context) => pageTermsAndConditions(),
     '/unapAuthorization': (context) => pageAunapAuthorization(),
     '/moreAboutYou': (context) => pageMoreAboutYou(),
+    '/infoContact': (context) => pageInfoContact(),
+    '/infoProfile': (context) => pageInfoProfile(),
   };
 }
