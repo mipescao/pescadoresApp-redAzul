@@ -8,6 +8,10 @@ class pageMain extends StatefulWidget {
 
   @override
   State<pageMain> createState() => _pageMainState();
+
+    static Route<void> route() {
+    return MaterialPageRoute<void>(builder: (_) => const pageMain());
+  }
 }
 
 class _pageMainState extends State<pageMain> {

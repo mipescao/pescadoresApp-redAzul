@@ -44,7 +44,14 @@ dependencies:
   flutter_bloc: ^8.1.5
   equatable: ^2.0.5
   formz: ^0.7.0
-  
+  google_fonts: 4.0.4
+  authentication_repository:
+    path: packages/authentication_repository
+  user_repository:
+    path: packages/user_repository
+  bloc: ^8.1.0
+  environmentConfiguration:
+    path: packages/environmentConfiguration
 
 dev_dependencies:
   flutter_test:
