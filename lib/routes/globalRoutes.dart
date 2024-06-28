@@ -1,6 +1,7 @@
 // app_routes.dart
 
 import 'package:flutter/material.dart';
+import 'package:pescadoresapp_redazul/atomicDesign/pages/pageCreateAcount/pageCreateAcount.dart';
 import 'package:pescadoresapp_redazul/atomicDesign/pages/pageInfoContact.dart';
 import 'package:pescadoresapp_redazul/atomicDesign/pages/pageInfoProfile.dart';
 
@@ -9,7 +10,6 @@ import 'package:pescadoresapp_redazul/atomicDesign/pages/pageMain.dart';
 
 // Rutas del registro del pescador
 import 'package:pescadoresapp_redazul/atomicDesign/pages/pageCodeVerification.dart';
-import 'package:pescadoresapp_redazul/atomicDesign/pages/pageCreateAcount.dart';
 import 'package:pescadoresapp_redazul/atomicDesign/pages/pageMoreAboutYou.dart';
 import 'package:pescadoresapp_redazul/atomicDesign/pages/pageSelectTypeUser.dart';
 import 'package:pescadoresapp_redazul/atomicDesign/pages/pageTermsAndConditions.dart';

@@ -1,7 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:pescadoresapp_redazul/atomicDesign/atoms/atomButton.dart';
 import 'package:pescadoresapp_redazul/atomicDesign/atoms/atomInputDate.dart';
+import 'package:pescadoresapp_redazul/atomicDesign/atoms/atomOptionSelected.dart';
 import 'package:pescadoresapp_redazul/atomicDesign/atoms/atomSelect.dart';
 import 'package:pescadoresapp_redazul/atomicDesign/atoms/atomText.dart';
 import 'package:pescadoresapp_redazul/globalStyles/styles.dart';
@@ -61,7 +63,7 @@ class _organismInfoProfileState extends State<organismInfoProfile> {
           atomSelect(itemsSelect: etnia  , nameSelect: "Grupo etnico"),
           sizedBoxAll.sizedBoxHeight,
           Container(
-            padding: EdgeInsets.only(top: 15.0, bottom: 15.0),
+            padding: EdgeInsets.only(top: 1.0, bottom: 1.0),
             width: 400,
             constraints: BoxConstraints(
               maxWidth: MediaQuery.of(context).size.width * 0.9,
@@ -73,96 +75,60 @@ class _organismInfoProfileState extends State<organismInfoProfile> {
             child: Column(
               children: [
 
-                
-
+                atomOptionsSelected(
+                  nameVariable: headOfTheFamily,
+                  text: 'Soy cabeza de familia',
+                  backgroundColor: colores.blue2, 
+                  borderRadius:  BorderRadius.only(
+                    topLeft: Radius.circular(10.0), // Set your desired radius
+                    topRight: Radius.circular(10.0),
+                  ),
+                  functionCLick: (trueFalse){
+                    setState(() {
+                      headOfTheFamily = trueFalse;
+                    });
+                  },
+                ),
+                atomOptionsSelected(nameVariable: disability, text: 'Soy una persona en condición de discapacidad.', backgroundColor: colores.blue3, functionCLick: (trueFalse){
+                  setState(() {
+                    disability = trueFalse;
+                  });
+                },),
+                atomOptionsSelected(nameVariable: displaced, text: 'Soy desplazado/a', backgroundColor: colores.blue2, functionCLick: (trueFalse){
+                  setState(() {
+                    displaced = trueFalse;
+                  });
+                },),
+                atomOptionsSelected(nameVariable: victimOfTheConflict, text: 'Soy victima del conflicto armado.', backgroundColor: colores.blue3, functionCLick: (trueFalse){
+                  setState(() {
+                    victimOfTheConflict = trueFalse;
+                  });
+                },),
+                atomOptionsSelected(
+                  nameVariable: lgtbiq,
+                  text: 'Pertenezco a la comunidad LGTBIQ+.',
+                  backgroundColor: colores.blue2,
+                  borderRadius:  BorderRadius.only(
+                    bottomLeft: Radius.circular(10.0), // Set your desired radius
+                    bottomRight: Radius.circular(10.0),
+                  ),
+                  functionCLick: (trueFalse){
+                    setState(() {
+                      lgtbiq = trueFalse;
+                    });
+                  },
+                ),
               ],
             ),
           ),
+          sizedBoxAll.sizedBoxHeight,
+          atomButtonGrayForm(text: "Enviar", onPressed: (){
+            
+          }),
+          sizedBoxAll.sizedBoxHeight,
         ],
       ),
     );
   }
 }
 
-
-class optionsSelected extends StatefulWidget {
-  final bool nameVariable;
-  final String text;
-  final Color backgroundColor;
-  const optionsSelected({super.key, required this.nameVariable, required this.text, required this.backgroundColor});
-
-  @override
-  State<optionsSelected> createState() => _optionsSelectedState();
-}
-
-class _optionsSelectedState extends State<optionsSelected> {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      color: colores.blue2,
-      padding: EdgeInsets.only(top: 15.0, left: MediaQuery.of(context).size.height * 0.02, right: MediaQuery.of(context).size.height * 0.02),
-      child: Row(
-        children: [
-          GestureDetector(
-            onTap: (){
-              setState(() {
-                // if(widge == true){
-                //   widge = false;
-                // }else{
-                //   widge = true;
-                // }
-              });
-            },
-            child: Container(
-              // Personaliza el Checkbox usando un Container
-              width: 35.0,
-              height: 35.0,
-              constraints: BoxConstraints(
-                maxWidth: MediaQuery.of(context).size.width * 0.80,
-                maxHeight:MediaQuery.of(context).size.width * 0.80
-              ),
-              decoration: BoxDecoration(
-                borderRadius:
-                    BorderRadius.circular(5.0),
-                color: widget.nameVariable
-                    ? colores.orange
-                    : Color(0xffffffff),
-                border: Border.all(
-                    color: Color(0xffffffff)),
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.black.withOpacity(0.2),
-                    spreadRadius: 2,
-                    blurRadius: 5,
-                    offset: Offset(0, 3),
-                  ),
-                ],
-              ),
-              child: widget.nameVariable
-              ? Icon(
-                  Icons.check,
-                  size: 24.0,
-                  color: Colors.white,
-                )
-              : Icon(
-                  Icons.check_box_outline_blank,
-                  size: 24.0,
-                  color: Colors.transparent,
-                )
-            ),
-          ),
-          SizedBox(width: MediaQuery.of(context).size.height * 0.02,),
-          // atomText(text: "Pertenezco a la comunidad LGTBIQ+.", colorText: colores.white, )
-          Flexible(
-            child: Text("Pertenezco a la comunidad LGTBIQ+.", overflow: TextOverflow.ellipsis, style: TextStyle(
-              fontSize: scaledFontSize(18.0),
-              fontFamily: "NunitoRegular",
-              fontWeight: FontWeight.normal,
-              color: colores.white,)
-            ),
-          )
-        ],
-      ),
-    );
-  }
-}
