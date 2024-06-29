@@ -1,9 +1,6 @@
 // app_routes.dart
 
 import 'package:flutter/material.dart';
-import 'package:pescadoresapp_redazul/atomicDesign/pages/pageCreateAcount/pageCreateAcount.dart';
-import 'package:pescadoresapp_redazul/atomicDesign/pages/pageInfoContact.dart';
-import 'package:pescadoresapp_redazul/atomicDesign/pages/pageInfoProfile.dart';
 
 // ruta principal
 import 'package:pescadoresapp_redazul/atomicDesign/pages/pageMain.dart';
@@ -14,6 +11,10 @@ import 'package:pescadoresapp_redazul/atomicDesign/pages/pageMoreAboutYou.dart';
 import 'package:pescadoresapp_redazul/atomicDesign/pages/pageSelectTypeUser.dart';
 import 'package:pescadoresapp_redazul/atomicDesign/pages/pageTermsAndConditions.dart';
 import 'package:pescadoresapp_redazul/atomicDesign/pages/pageAunapAuthorization.dart';
+import 'package:pescadoresapp_redazul/atomicDesign/pages/pageCreateAcount/pageCreateAcount.dart';
+import 'package:pescadoresapp_redazul/atomicDesign/pages/pageInfoContact.dart';
+import 'package:pescadoresapp_redazul/atomicDesign/pages/pageInfoProfile.dart';
+import 'package:pescadoresapp_redazul/atomicDesign/pages/pageFinancialActivity.dart';
 
 class AppRoutes {
   static Map<String, WidgetBuilder> routes = {
@@ -29,5 +30,6 @@ class AppRoutes {
     '/moreAboutYou': (context) => pageMoreAboutYou(),
     '/infoContact': (context) => pageInfoContact(),
     '/infoProfile': (context) => pageInfoProfile(),
+    '/financialActivity': (context) => pageFinancialActivity(),
   };
 }

@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:mipescao_desing_system/webComponents/alertModal.dart';
 import 'package:pescadoresapp_redazul/atomicDesign/atoms/atomButton.dart';
 import 'package:pescadoresapp_redazul/atomicDesign/atoms/atomInputDate.dart';
 import 'package:pescadoresapp_redazul/atomicDesign/atoms/atomOptionSelected.dart';
@@ -123,12 +124,39 @@ class _organismInfoProfileState extends State<organismInfoProfile> {
           ),
           sizedBoxAll.sizedBoxHeight,
           atomButtonGrayForm(text: "Enviar", onPressed: (){
-            
+            saveInfo();
           }),
           sizedBoxAll.sizedBoxHeight,
         ],
       ),
     );
   }
+  
+  saveInfo(){
+    showDialog(
+      context: context,
+      barrierDismissible:
+          false, // Evitar el cierre al hacer clic fuera del cuadro de diálogo
+      builder: (BuildContext context) {
+        return BackButtonInterceptorShow(
+          child: CustomModal(
+            title: 'Información guardada correctamente',
+            descripcion:
+                'Dale aceptar para continuar',
+            imagen: 'assets/successAlert.png',
+            textoboton1: '',
+            funcion1: noFunction,
+            textoboton2: 'Aceptar',
+            funcion2: goNext,
+          ),
+        ); // Usar el widget de la modal personalizada
+      },
+    );
+  }
+
+  goNext(context1){
+    Navigator.pushNamed(context, '/financialActivity');
+  }
+
 }
 
