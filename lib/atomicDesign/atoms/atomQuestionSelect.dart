@@ -1,0 +1,26 @@
+import 'package:flutter/material.dart';
+import 'package:pescadoresapp_redazul/atomicDesign/atoms/atomSelect.dart';
+import 'package:pescadoresapp_redazul/globalStyles/styles.dart';
+
+class atomQuestionSelect extends StatefulWidget {
+  final String textAtom;
+  final List<basicSelect> selectAtom;
+  final Function(String) functionSelect;
+  const atomQuestionSelect({super.key, required this.textAtom, required this.selectAtom, required this.functionSelect});
+  
+  @override
+  State<atomQuestionSelect> createState() => _atomQuestionSelectState();
+}
+
+class _atomQuestionSelectState extends State<atomQuestionSelect> {
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Text(widget.textAtom, style: TextStyle(color: Color(0xff0095CD),fontSize: scaledFontSize(20.0), fontFamily: "NunitoBold"), textAlign: TextAlign.center),
+        sizedBoxAll.sizedBoxHeight2,
+        atomSelect(itemsSelect: widget.selectAtom, nameSelect: "Elige una opción")
+      ],
+    );
+  }
+}

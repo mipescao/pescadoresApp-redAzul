@@ -1,7 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:mipescao_desing_system/webComponents/alertModal.dart';
-import 'package:pescadoresapp_redazul/atomicDesign/atoms/atomText.dart';
+import 'package:pescadoresapp_redazul/atomicDesign/atoms/atomSelect.dart';
 import 'package:pescadoresapp_redazul/globalStyles/styles.dart';
+
+import 'package:mipescao_desing_system/webComponents/alertModal.dart';
+import 'package:pescadoresapp_redazul/atomicDesign/atoms/atomQuestionSelect.dart';
+import 'package:pescadoresapp_redazul/atomicDesign/atoms/atomText.dart';
+import 'package:pescadoresapp_redazul/atomicDesign/atoms/atomYestOrNot.dart';
+import 'package:pescadoresapp_redazul/atomicDesign/molecules/moleculeCardsOptions.dart';
+
 
 class organismFinancialActivity extends StatefulWidget {
   const organismFinancialActivity({super.key});
@@ -11,6 +17,11 @@ class organismFinancialActivity extends StatefulWidget {
 }
 
 class _organismFinancialActivityState extends State<organismFinancialActivity> {
+  bool sellMipescaoProducts = true;
+  bool needTraining = false;
+  List<basicSelect> optionsSelect = <basicSelect>[basicSelect(value: 1, label: 'No sé como funciona'), basicSelect(value: 2, label: 'Ya vendo de otra manera'), basicSelect(value: 3, label: 'No confío en la internet'), basicSelect(value: 4, label: 'Me parece complicado') , basicSelect(value: 5, label: 'No lo necesito'), basicSelect(value: 6, label: 'No soy quien vende mis productos') ];
+
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -29,8 +40,25 @@ class _organismFinancialActivityState extends State<organismFinancialActivity> {
           sizedBoxAll.sizedBoxHeight,
           atomTitle(title: "Háblanos de tu actividad financiera:", colorTitle: colores.blue1,),
           sizedBoxAll.sizedBoxHeight,
-          atomText(text: 'Para vender tus productos por medio de miPescao debes tener una cuenta bancaria', colorText: colores.blue1, fontSize: scaledFontSize(20.0),)
-
+          atomText(text: 'Para vender tus productos por medio de miPescao debes tener una cuenta bancaria', colorText: colores.blue1, fontSize: scaledFontSize(20.0),),
+          sizedBoxAll.sizedBoxHeight,
+          moleculeCardsOptions(
+            textCard: '¿Quieres vender tus productos por medio de miPescao?',
+            nameBoolen: sellMipescaoProducts,
+            secondPartCard: true,
+            functionCard: (value){
+              setState(() {
+                sellMipescaoProducts = value;
+              });
+            },
+            nameWidget : sellMipescaoProducts ? atomYesOrNot(textAtom: '¿Necesitas capacitación?', functionAtom: (value) {
+              setState(() {
+                needTraining = value;
+              });
+            },) : atomQuestionSelect(textAtom: '¿Porqué no venderías por miPescao?', selectAtom: optionsSelect, onChanged: (value){
+              
+            })
+          
         ],
       ),
     );
