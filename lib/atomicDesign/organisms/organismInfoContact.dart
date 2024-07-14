@@ -47,10 +47,11 @@ class _organismInfoContactState extends State<organismInfoContact> {
           sizedBoxAll.sizedBoxHeight,
           atomInputsForm(textInput: "Teléfono para emergrncias", typeKey: TextInputType.number, textRequired: "",),
           sizedBoxAll.sizedBoxHeight,
-          sizedBoxAll.sizedBoxHeight,
           atomButtonGrayForm(text: "Enviar", onPressed: (){
             infoSavedCorrectly();
-          })
+          }),
+          sizedBoxAll.sizedBoxHeight,
+          sizedBoxAll.sizedBoxHeight,
         ],
       ),
     );

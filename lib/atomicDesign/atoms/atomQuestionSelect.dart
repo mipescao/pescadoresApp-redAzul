@@ -7,7 +7,7 @@ class atomQuestionSelect extends StatefulWidget {
   final List<basicSelect> selectAtom;
   final Function(String) functionSelect;
   const atomQuestionSelect({super.key, required this.textAtom, required this.selectAtom, required this.functionSelect});
-  
+
   @override
   State<atomQuestionSelect> createState() => _atomQuestionSelectState();
 }
@@ -19,7 +19,9 @@ class _atomQuestionSelectState extends State<atomQuestionSelect> {
       children: [
         Text(widget.textAtom, style: TextStyle(color: Color(0xff0095CD),fontSize: scaledFontSize(20.0), fontFamily: "NunitoBold"), textAlign: TextAlign.center),
         sizedBoxAll.sizedBoxHeight2,
-        atomSelect(itemsSelect: widget.selectAtom, nameSelect: "Elige una opción")
+        atomSelect(itemsSelect: widget.selectAtom, nameSelect: "Elige una opción", onChanged: (value){
+          widget.functionSelect(value.toString());
+        },)
       ],
     );
   }

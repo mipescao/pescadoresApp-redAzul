@@ -1,25 +1,39 @@
 import 'package:flutter/material.dart';
-import 'package:pescadoresapp_redazul/atomicDesign/atoms/atomSelect.dart';
 import 'package:pescadoresapp_redazul/globalStyles/styles.dart';
+
+// Fecha de creación: 13/07/2024
+// Creado por: Juan José Arteta Maury
+// Parametros
+// Obligatorios
+  // textCard: Texto que va ha aparecer en la tarjeta en la parte azul
+  // nameBoolen: Nombre del booleano donde se va a guardar lo que el usuario escoga (Si o No)
+  // secondPartCard: booleando que decide si se muestra o no la segunda parte de la tarjeta (La parte blanca)
+
+// Opcionales
+  // widthCard: Ancho de la tarjeta (Por defecto sera 400.0 o el 90% del ancho  de la pantalla)
+  // nameWidget: widget con la información que se va amostrar en la parte blanca
 
 class moleculeCardsOptions extends StatefulWidget {
   final double? widthCard;
   final String textCard;
   final bool nameBoolen;
+  final bool? optionSelected;
   final Function(bool) functionCard;
   final bool secondPartCard;
   final Widget? nameWidget;
-  const moleculeCardsOptions({super.key, this.widthCard, required this.textCard, required this.nameBoolen, required this.functionCard, required this.secondPartCard, this.nameWidget});
+  const moleculeCardsOptions({super.key, this.widthCard, required this.textCard, required this.nameBoolen, this.optionSelected, required this.functionCard, required this.secondPartCard, this.nameWidget});
 
   @override
   State<moleculeCardsOptions> createState() => _moleculeCardsOptionsState();
 }
 
 class _moleculeCardsOptionsState extends State<moleculeCardsOptions> {
-  bool trueFalse = false;
-  bool trueFalseSecond = false;
+  
   @override
   Widget build(BuildContext context) {
+
+    bool trueFalse = widget.nameBoolen;
+
     return Container(
       width: widget.widthCard ?? 400.0,
       decoration: BoxDecoration(

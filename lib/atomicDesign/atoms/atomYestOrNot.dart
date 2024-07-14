@@ -5,7 +5,8 @@ import 'package:pescadoresapp_redazul/globalStyles/styles.dart';
 class atomYesOrNot extends StatefulWidget {
   final  String textAtom;
   final Function(bool) functionAtom;
-  const atomYesOrNot({super.key, required  this.textAtom,  required this.functionAtom});
+  final  bool? optionSelected;
+  const atomYesOrNot({super.key, required  this.textAtom,  required this.functionAtom, this.optionSelected});
 
   @override
   State<atomYesOrNot> createState() => _atomYesOrNotState();
@@ -13,9 +14,10 @@ class atomYesOrNot extends StatefulWidget {
 
 class _atomYesOrNotState extends State<atomYesOrNot> {
 
-  bool trueFalse = false;
   @override
   Widget build(BuildContext context) {
+    bool trueFalse = widget.optionSelected ??  true;
+
     return Column(
       children: [
         Text(widget.textAtom, style: TextStyle(color: Color(0xff0095CD),fontSize: scaledFontSize(20.0), fontFamily: "NunitoBold"), textAlign: TextAlign.center),
@@ -50,7 +52,7 @@ class _atomYesOrNotState extends State<atomYesOrNot> {
                     borderRadius:
                         BorderRadius.circular(5.0),
                     color: trueFalse
-                        ? colores.orange
+                        ? colores.blue1
                         : Color(0xffffffff),
                     border: Border.all(
                         color: Color(0xffffffff)),
@@ -107,7 +109,7 @@ class _atomYesOrNotState extends State<atomYesOrNot> {
                         BorderRadius.circular(5.0),
                     color: trueFalse
                         ? Color(0xffffffff)
-                        : colores.orange,
+                        : colores.blue1,
                     border: Border.all(
                         color: Color(0xffffffff)),
                     boxShadow: [
